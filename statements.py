@@ -5,7 +5,7 @@ from streamlit_bokeh_events import streamlit_bokeh_events
 import pandas as pd
 import pyperclip
 
-st.set_page_config(layout = "wide", page_title='Imperial College London - Spiral non-compliant submissions statistics dashboard')
+st.set_page_config(layout = "wide", page_title='Copyright statements dashboard')
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
 image = path
 st.image(image, width=300)
