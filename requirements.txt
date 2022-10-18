@@ -5,4 +5,3 @@ bokeh==2.4.3
 streamlit-bokeh-events==0.1.2
 xlrd==2.0.1
 openpyxl==3.0.10
-xclip
