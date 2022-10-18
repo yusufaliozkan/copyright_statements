@@ -27,11 +27,6 @@ publisher = st.selectbox("Select a publisher:",clist)
 df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
 df_statement
 
-if st.button('Copy to clipboard'):    
-    pyperclip.copy(df_statement)
-else:
-    st.write('')    
-
 text_to_be_copied = df_statement
 copy_dict = {"content": text_to_be_copied}
 
@@ -63,13 +58,6 @@ with st.expander("See all publisher statements"):
         override_height=75,
         debounce_time=0)   
     
-    if st.button('Copy all statements to clipboard'):
-        df_new.to_clipboard(sep=',')
-        #pyperclip.copy(df_new.to_csv(sep='\t'))
-        
-    else:
-        st.write('')
-
 with st.expander("More information:"):
     st.write('Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
 
