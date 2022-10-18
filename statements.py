@@ -1,5 +1,3 @@
-# streamlit run "D:\OneDrive - Imperial College London\07.Projects\13.Data\statements\statements.py"
-
 import streamlit as st
 from bokeh.models.widgets import Button
 from bokeh.models import CustomJS
@@ -12,7 +10,7 @@ path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_Col
 image = path
 st.image(image, width=300)
 
-df = pd.read_excel(r'D:\OneDrive - Imperial College London\07.Projects\13.Data\statements\statements.xlsx', sheet_name='Sheet1')
+df = pd.read_excel(r'statements.xlsx', sheet_name='Sheet1')
 df['publisher'] = df['publisher'].astype(str)
 
 df_new=df.sort_values(by='publisher')
