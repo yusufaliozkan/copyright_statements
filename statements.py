@@ -28,7 +28,8 @@ df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
 df_statement
 
 if st.button('Copy to clipboard'):
-    pyperclip.copy(df_statement)
+    df_new.to_clipboard(sep=',')
+    #pyperclip.copy(df_statement)
 else:
     st.write('')    
 
