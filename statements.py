@@ -58,6 +58,13 @@ with st.expander("See all publisher statements"):
         override_height=75,
         debounce_time=0)   
     
+    def convert_df(df):
+        return df.to_csv(index=False).encode('utf-8')
+
+    csv = convert_df(df_new)
+
+    st.download_button("Press to Download", csv, "copyright_statements.csv", "text/csv", key='download-csv')
+    
 with st.expander("More information:"):
     st.write('Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
 
