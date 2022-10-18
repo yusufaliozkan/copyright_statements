@@ -61,7 +61,12 @@ with st.expander("See all publisher statements"):
         key="get_text2",
         refresh_on_update=True,
         override_height=75,
-        debounce_time=0)    
+        debounce_time=0)   
+    
+    if st.button('Copy all statements to clipboard'):
+        pyperclip.copy(df_new.to_csv(sep='\t'))
+    else:
+        st.write('')
 
 with st.expander("More information:"):
     st.write('Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
