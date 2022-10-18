@@ -10,7 +10,8 @@ path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_Col
 image = path
 st.image(image, width=300)
 
-df = pd.read_excel(r'statements.xlsx', sheet_name='Sheet1')
+# df = pd.read_excel(r'statements.xlsx', sheet_name='Sheet1')
+df = pd.read_csv(r'statements.csv')
 df['publisher'] = df['publisher'].astype(str)
 
 df_new=df.sort_values(by='publisher')
