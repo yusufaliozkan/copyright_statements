@@ -30,8 +30,24 @@ df_statement
 if st.button('Copy to clipboard'):
     pyperclip.copy(df_statement)
 else:
-    st.write('')
-    
+    st.write('')    
+
+text_to_be_copied = df_statement
+copy_dict = {"content": text_to_be_copied}
+
+copy_button = Button(label="Copy to clipboard")
+copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    navigator.clipboard.writeText(content);
+    """))
+
+no_event = streamlit_bokeh_events(
+    copy_button,
+    events="GET_TEXT",
+    key="get_text",
+    refresh_on_update=True,
+    override_height=75,
+    debounce_time=0)
+
 with st.expander("See all publisher statements"):
     df_new
     copy_button = Button(label="Copy data all copyright statements")
