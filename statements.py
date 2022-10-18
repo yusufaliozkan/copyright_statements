@@ -27,8 +27,7 @@ publisher = st.selectbox("Select a publisher:",clist)
 df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
 df_statement
 
-if st.button('Copy to clipboard'):
-    df_new.to_clipboard(sep=',')
+if st.button('Copy to clipboard'):    
     #pyperclip.copy(df_statement)
 else:
     st.write('')    
@@ -65,7 +64,8 @@ with st.expander("See all publisher statements"):
         debounce_time=0)   
     
     if st.button('Copy all statements to clipboard'):
-        pyperclip.copy(df_new.to_csv(sep='\t'))
+        df_new.to_clipboard(sep=',')
+        #pyperclip.copy(df_new.to_csv(sep='\t'))
     else:
         st.write('')
 
