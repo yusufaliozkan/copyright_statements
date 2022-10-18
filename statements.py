@@ -26,9 +26,9 @@ publisher = st.selectbox("Select a publisher:",clist)
 
 df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
 df_statement
-
+text_to_be_copied = df_statement
 if st.button('Copy to clipboard'):
-    pyperclip.copy(df_statement)
+    pyperclip.copy(text_to_be_copied)
 else:
     st.write('')    
 
