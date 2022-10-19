@@ -216,5 +216,5 @@ with st.expander("See all publisher statements"):
     st.download_button("Press to Download", csv, "copyright_statements.csv", "text/csv", key='download-csv')
 
 
-with st.expander("More information:"):
-    st.write('Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
+with st.expander("About the dashboard"):
+    st.write('Source code of this app is available\n [here](https://github.com/YusufAliOzkan/copyright_statements).')
