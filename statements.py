@@ -5,10 +5,10 @@ from streamlit_bokeh_events import streamlit_bokeh_events
 import pandas as pd
 import pyperclip
 
-st.set_page_config(layout = "wide", page_title='Copyright statements dashboard')
+st.set_page_config(layout = "wide", page_title='Copyright statements dashboard', page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png")
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
-image = path
-st.image(image, width=300)
+path2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png'image = path
+st.image(path2, width=75)
 
 # df = pd.read_excel(r'statements.xlsx', sheet_name='Sheet1')
 df = pd.read_csv(r'statements.csv')
@@ -19,6 +19,7 @@ df_new=df.sort_values(by='publisher')
 st.markdown("# Copyright statements dashboard")
 st.write('This page shows set copyright statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
 st.sidebar.markdown("# Copyright statements dashboard")
+st.sidebar.image(path, width=250)
 
 clist = df_new['publisher'].unique()
 publisher = st.selectbox("Select a publisher:",clist)
