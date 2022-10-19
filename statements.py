@@ -18,8 +18,9 @@ df_new=df.sort_values(by='publisher')
 
 st.markdown("# Copyright statements dashboard")
 st.write('This page shows set copyright statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
-st.sidebar.markdown("# Copyright statements dashboard")
+
 st.sidebar.image(path, width=250)
+st.sidebar.markdown("# Copyright statements dashboard")
 
 clist = df_new['publisher'].unique()
 publisher = st.selectbox("Select a publisher:",clist)
