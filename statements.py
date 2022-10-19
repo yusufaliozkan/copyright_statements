@@ -217,4 +217,5 @@ with st.expander("See all publisher statements"):
 
 
 with st.expander("About the dashboard"):
+    st.write('This app was launched in October 2022.')
     st.write('Source code of this app is available\n [here](https://github.com/YusufAliOzkan/copyright_statements).')
