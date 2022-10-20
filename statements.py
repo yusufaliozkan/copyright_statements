@@ -196,7 +196,7 @@ with st.expander("CC BY licence statements"):
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY licence', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
-        copy_button = Button(label="CC BY licence")
+        copy_button = Button(label="CC BY")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
             navigator.clipboard.writeText(content);
             """))
@@ -213,7 +213,7 @@ with st.expander("CC BY licence statements"):
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC licence', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
-        copy_button = Button(label="CC BY-NC licence")
+        copy_button = Button(label="CC BY-NC")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
             navigator.clipboard.writeText(content);
             """))
@@ -230,7 +230,7 @@ with st.expander("CC BY licence statements"):
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC-ND licence', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
-        copy_button = Button(label="CC BY-NC-ND licence")
+        copy_button = Button(label="CC BY-NC-ND")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
             navigator.clipboard.writeText(content);
             """))
