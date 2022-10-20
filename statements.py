@@ -187,10 +187,9 @@ with st.expander("Frequently used copyright statements"):
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-with st.expander("CC BY licence statements"):
-    st.write('Click on the publisher name to copy the statement.')
+    st.write('Click on the licence to copy the statement.')
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY licence', 'statement'].values[0]
