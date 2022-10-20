@@ -210,7 +210,7 @@ with st.expander("CC BY licence statements"):
             debounce_time=0)
 
     with col2:
-        text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC licenc', 'statement'].values[0]
+        text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC licence', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
         copy_button = Button(label="CC BY-NC licence")
