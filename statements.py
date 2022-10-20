@@ -260,9 +260,7 @@ with st.expander("CC BY licence statements"):
             override_height=75,
             debounce_time=0)
         
-    col1 = st.columns(1)
-    
-    with col1:
+    with:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC-SA licence', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
