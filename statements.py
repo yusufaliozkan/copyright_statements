@@ -271,8 +271,8 @@ with st.expander("CC BY licence statements"):
 
         no_event = streamlit_bokeh_events(
             copy_button,
-            events="GET_TEXTccbyncsa",
-            key="get_textccbncsa",
+            events="GET_TEXTccbysa",
+            key="get_textccbsa",
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
