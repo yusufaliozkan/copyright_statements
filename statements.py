@@ -45,9 +45,8 @@ no_event = streamlit_bokeh_events(
     debounce_time=0)
 
 #Frequently used statements
-#Frequently used statements
 with st.expander("Frequently used copyright statements"):
-    st.write('Click on the publisher name to copy the statement.')
+    st.write('Publisher statements. Click on the button to copy the statement.')
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -187,7 +186,8 @@ with st.expander("Frequently used copyright statements"):
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-    st.write('Click on the licence to copy the statement.')
+        
+    st.write('Creative Commons statements. Click on the button to copy the statement.')
 
     col1, col2, col3 = st.columns(3)
 
