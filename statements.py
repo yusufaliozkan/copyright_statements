@@ -190,7 +190,7 @@ with st.expander("Frequently used copyright statements"):
 with st.expander("CC BY licence statements"):
     st.write('Click on the publisher name to copy the statement.')
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY licence', 'statement'].values[0]
@@ -243,8 +243,7 @@ with st.expander("CC BY licence statements"):
             override_height=75,
             debounce_time=0)
         
-    col1, col2 = st.columns(2)
-    with col1:
+     with col4:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC-SA licence', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
@@ -260,19 +259,22 @@ with st.expander("CC BY licence statements"):
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-    with col2:
-        text_to_be_copied = df.loc[df_new['publisher']=='CC BY-SA licence', 'statement'].values[0]
+        
+    col1 = st.columns(1)
+    
+    with col1:
+        text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC-SA licence', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
-        copy_button = Button(label="CC BY-SA licence")
+        copy_button = Button(label="CC BY-NC-SA licence")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
             navigator.clipboard.writeText(content);
             """))
 
         no_event = streamlit_bokeh_events(
             copy_button,
-            events="GET_TEXTccbysa",
-            key="get_textccbsa",
+            events="GET_TEXTccbyncsa",
+            key="get_textccbncsa",
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
