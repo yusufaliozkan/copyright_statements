@@ -187,7 +187,79 @@ with st.expander("Frequently used copyright statements"):
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+with st.expander("CC BY licence statements"):
+    st.write('Click on the publisher name to copy the statement.')
 
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        text_to_be_copied = df.loc[df_new['publisher']=='CC BY licence', 'statement'].values[0]
+        copy_dict = {"content": text_to_be_copied}
+
+        copy_button = Button(label="CC BY licence")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXTccby",
+            key="get_textccby",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
+
+    with col2:
+        text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC licenc', 'statement'].values[0]
+        copy_dict = {"content": text_to_be_copied}
+
+        copy_button = Button(label="CC BY-NC licence")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXTccbync",
+            key="get_textccbync",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
+
+    with col3:
+        text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC-ND licence', 'statement'].values[0]
+        copy_dict = {"content": text_to_be_copied}
+
+        copy_button = Button(label="CC BY-NC-ND licence")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXTccbyncnd",
+            key="get_textccbyncnd",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
+
+    with col4:
+        text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC-SA licence', 'statement'].values[0]
+        copy_dict = {"content": text_to_be_copied}
+
+        copy_button = Button(label="CC BY-NC-SA licence")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXTccbyncsa",
+            key="get_textccbncsa",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
+        
 with st.expander("See all publisher statements"):
     df_new
     copy_button = Button(label="Copy data all copyright statements")
