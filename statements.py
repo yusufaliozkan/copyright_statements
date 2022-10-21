@@ -29,7 +29,7 @@ df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
 df_statement
 
 if st.button('Copy to clipboard'):
-    c.copy(df_statement)
+    xerox.copy(df_statement)
 
 text_to_be_copied = df_statement
 copy_dict = {"content": text_to_be_copied}
