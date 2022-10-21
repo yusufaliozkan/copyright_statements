@@ -3,7 +3,6 @@ from bokeh.models.widgets import Button
 from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
 import pandas as pd
-import xerox
 
 st.set_page_config(layout = "wide", page_title='Copyright statements dashboard', page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png")
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
@@ -27,9 +26,6 @@ publisher = st.selectbox("Select a publisher:",clist)
 
 df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
 df_statement
-
-if st.button('Copy to clipboard'):
-    xerox.copy(df_statement)
 
 text_to_be_copied = df_statement
 copy_dict = {"content": text_to_be_copied}
