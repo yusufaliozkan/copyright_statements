@@ -6,4 +6,5 @@ streamlit-bokeh-events==0.1.2
 xlrd==2.0.1
 openpyxl==3.0.10
 clipboard==0.0.4
-xerox==0.4.1
+pyperclip==1.8.2
+PyQt5==5.15.7
