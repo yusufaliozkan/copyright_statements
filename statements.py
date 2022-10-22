@@ -274,7 +274,7 @@ with tab2:
 
 with tab3:
 
-    st.subheader('Rights retention statement:')
+    st.subheader('[Rights retention statement](https://www.coalition-s.org/resources/rights-retention-strategy/):')
     st.write(df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0])
     
     text_to_be_copied = df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]
