@@ -292,7 +292,7 @@ with tab3:
     override_height=75,
     debounce_time=0)
 
-    st.subheader('Grey litation generator:')
+    st.subheader('Grey literature citation generator:')
     year = st.text_input('Enter year:', '')
     authors = st.text_input('Enter author(s) (Surname, First letter of name):', '')
     title = st.text_input('Enter title:', '')
