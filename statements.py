@@ -304,7 +304,6 @@ with tab3:
     st.write('#### Citation: ')
     citation = ('© ' + year + ' '+ authors +'. '+"'"+title+"'. "+ '('+type+ ": "+institution+')'+" "+handle)
     st.write(citation)
-    st.button('Copy', citation)
 
     text_to_be_copied = citation
     copy_dict = {"content": text_to_be_copied}
