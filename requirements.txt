@@ -5,4 +5,3 @@ bokeh==2.4.3
 streamlit-bokeh-events==0.1.2
 PyQt6==6.4.0
 Gtk==4.0
-/home/appuser/venv/bin/python -m pip install --upgrade pip
