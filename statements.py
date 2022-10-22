@@ -293,8 +293,8 @@ with tab3:
     override_height=75,
     debounce_time=0)
 
-    st.subheader('Grey literature citation generator:')
-    st.write('You can generate your literature by filling the boxes below.')
+    st.subheader('(Grey literature)[https://library.leeds.ac.uk/info/1110/resource_guides/7/grey_literature] citation generator:')
+    st.write('You can generate your citation by filling the boxes below.')
     year = st.text_input('Enter year:', '')
     authors = st.text_input('Enter author(s) *(Surname, First letter of name)* :', '')
     title = st.text_input('Enter title:', '')
