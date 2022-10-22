@@ -3,6 +3,7 @@ from bokeh.models.widgets import Button
 from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
 import pandas as pd
+import PyQt5
 import pyperclip
 
 st.set_page_config(layout = "wide", page_title='Copyright statements dashboard', page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png")
