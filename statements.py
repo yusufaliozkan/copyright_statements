@@ -17,7 +17,6 @@ path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_Col
 path2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png'
 st.image(path2, width=75)    
 st.markdown("# Copyright statements dashboard")
-st.write('This page shows set copyright statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
 
 st.sidebar.image(path2, width=150)
 st.sidebar.markdown("# Copyright statements dashboard")
@@ -25,6 +24,7 @@ st.sidebar.markdown("# Copyright statements dashboard")
 tab1, tab2, tab3 = st.tabs(['Choose copyright statement', 'All publisher statements', 'Other statements'])
 
 with tab1:
+    st.write('This page shows set copyright statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
     clist = df_new['publisher'].unique()
     publisher = st.selectbox("Select a publisher:",clist)
     df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
@@ -244,6 +244,7 @@ with tab1:
                 debounce_time=0)
 
 with tab2:                
+    st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets.')
     df_new
     copy_button = Button(label="Copy data all copyright statements")
     copy_button.js_on_event("button_click", CustomJS(args=dict(df_new=df_new.to_csv(sep='\t')), code="""
@@ -293,8 +294,9 @@ with tab3:
     debounce_time=0)
 
     st.subheader('Grey literature citation generator:')
+    st.write('You can generate your literature by filling the boxes below.')
     year = st.text_input('Enter year:', '')
-    authors = st.text_input('Enter author(s) (Surname, First letter of name):', '')
+    authors = st.text_input('Enter author(s) *(Surname, First letter of name)* :', '')
     title = st.text_input('Enter title:', '')
     type = st.selectbox('Select a type of publication: ', ('Report', 'Preprint', 'Working paper', 'Blog post'))
     institution = st.text_input('Enter institution:', '')
@@ -302,6 +304,8 @@ with tab3:
     st.write('#### Citation: ')
     citation = ('© ' + year + ' '+ authors +'. '+"'"+title+"'. "+ '('+type+ ": "+institution+')'+" "+handle)
     st.write(citation)
+    st.button('Copy', citation)
+
     text_to_be_copied = citation
     copy_dict = {"content": text_to_be_copied}
 
