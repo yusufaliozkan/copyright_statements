@@ -302,25 +302,25 @@ with tab3:
     type = st.selectbox('Select a type of publication: ', ('Report', 'Preprint', 'Working paper', 'Blog post'))
     institution = st.text_input('Enter institution:', '')
     handle = st.text_input('Publication handle:', '')
-    st.write('#### Citation: ')
     citation = ('© ' + year + ' '+ authors +'. '+"'"+title+"'. "+ '('+type+ ": "+institution+')'+" "+handle)
-    st.write(citation)
+    if st.button('Show citation'):
+        st.write('**Citation** : '  + citation)
 
-    text_to_be_copied = citation
-    copy_dict = {"content": text_to_be_copied}
+        text_to_be_copied = citation
+        copy_dict = {"content": text_to_be_copied}
 
-    copy_button = Button(label="Copy to clipboard")
-    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-    navigator.clipboard.writeText(content);
-    """))
+        copy_button = Button(label="Copy to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+        navigator.clipboard.writeText(content);
+        """))
 
-    no_event = streamlit_bokeh_events(
-    copy_button,
-    events="GET_TEXTcite",
-    key="get_textcite",
-    refresh_on_update=True,
-    override_height=75,
-    debounce_time=0)   
+        no_event = streamlit_bokeh_events(
+        copy_button,
+        events="GET_TEXTcite",
+        key="get_textcite",
+        refresh_on_update=True,
+        override_height=75,
+        debounce_time=0)   
 
 with st.expander("About the dashboard"):
     st.write('This app was launched in October 2022.')
