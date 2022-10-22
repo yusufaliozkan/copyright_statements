@@ -339,7 +339,3 @@ with st.expander("About the dashboard"):
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
-    
-page_names_to_funcs = {
-    "Copyright statements": page_copyright_statements,
-}
