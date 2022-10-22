@@ -29,9 +29,6 @@ df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
 st.write('**Publisher statement is:**')
 df_statement
 
-if st.button('Copy to clipboard'):
-    pyperclip.copy(df_statement)
-
 text_to_be_copied = df_statement
 copy_dict = {"content": text_to_be_copied}
 
