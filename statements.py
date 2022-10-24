@@ -24,6 +24,7 @@ st.sidebar.markdown("# Copyright statements dashboard")
 tab1, tab2, tab3 = st.tabs(['Choose copyright statement', 'All publisher statements', 'Other statements'])
 
 with tab1:
+    st.subheader('Copyrights statements')
     st.write('This page shows set copyright statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
     clist = df_new['publisher'].unique()
     publisher = st.selectbox("Select a publisher:",clist)
