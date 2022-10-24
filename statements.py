@@ -21,7 +21,7 @@ st.markdown("# Copyright statements dashboard")
 st.sidebar.image(path2, width=150)
 st.sidebar.markdown("# Copyright statements dashboard")
 
-tab1, tab2, tab3 = st.tabs(['Copyright statements', 'All publisher statements', 'Other statements'])
+tab1, tab2, tab3 = st.tabs(['Copyright statements', 'Rights retention statement', 'Other statements'])
 
 with tab1:
     st.subheader('Copyrights statements')
@@ -267,36 +267,6 @@ with tab1:
         st.download_button("Press to Download", csv, "copyright_statements.csv", "text/csv", key='download-csv')
 
 with tab2:                
-    st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets.')
-    df_new
-    copy_button = Button(label="Copy data all copyright statements")
-    copy_button.js_on_event("button_click", CustomJS(args=dict(df_new=df_new.to_csv(sep='\t')), code="""
-        navigator.clipboard.writeText(df_new);
-        """))
-
-    no_event = streamlit_bokeh_events(
-        copy_button,
-        events="GET_TEXT11",
-        key="get_text11",
-        refresh_on_update=True,
-        override_height=75,
-        debounce_time=0)
-
-
-    # if st.button('Copy all statements to clipboard'):
-    #     pyperclip.copy(df_new.to_csv(sep='\t'))
-    # else:
-    #     st.write('')
-    
-    def convert_df(df):
-        return df.to_csv(index=False).encode('utf-8')
-
-    csv = convert_df(df_new)
-
-    st.download_button("Press to Download", csv, "copyright_statements.csv", "text/csv", key='download-csv')
-
-with tab3:
-
     st.subheader('Rights retention statement:')
     st.write("[Rights retention statement](https://www.coalition-s.org/resources/rights-retention-strategy/) allows authors to exercise the rights of their accepted manuscripts. Copy the statement below and paste into your submitted version.")
     st.write('**'+df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]+'**')
@@ -316,7 +286,9 @@ with tab3:
     refresh_on_update=True,
     override_height=75,
     debounce_time=0)
-
+    
+    
+with tab3:
     st.subheader('Grey literature citation generator:')
     st.write('You can generate your citation for [grey literature](https://library.leeds.ac.uk/info/1110/resource_guides/7/grey_literature) items by filling the boxes below.')
     year = st.text_input('Enter year:', '')
