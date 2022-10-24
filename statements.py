@@ -292,7 +292,7 @@ with tab3:
     st.subheader('Grey literature citation generator:')
     st.write('You can generate your citation for [grey literature](https://library.leeds.ac.uk/info/1110/resource_guides/7/grey_literature) items by filling the boxes below.')
     year = st.text_input('Enter year:', '')
-    authors = st.text_input('Enter author(s) *(Surname, First letter of name)* :', '')
+    authors = st.text_input('Enter author(s) ( *Surname, First letter of name* ) :', '')
     title = st.text_input('Enter title:', '')
     type = st.selectbox('Select a type of publication: ', ('Report', 'Preprint', 'Working paper', 'Blog post'))
     institution = st.text_input('Enter institution:', '')
@@ -317,7 +317,7 @@ with tab3:
         override_height=75,
         debounce_time=0)   
 
-with st.expander("About the dashboard"):
+with st.expander("About"):
     st.write('This app was launched in October 2022.')
     st.write('Source code of this app is available\n [here](https://github.com/YusufAliOzkan/copyright_statements).')
     st.write("**Get in touch!**")   
