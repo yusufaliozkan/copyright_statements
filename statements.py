@@ -21,7 +21,7 @@ st.markdown("# Copyright statements dashboard")
 st.sidebar.image(path2, width=150)
 st.sidebar.markdown("# Copyright statements dashboard")
 
-tab1, tab2, tab3 = st.tabs(['Copyright statements', 'Rights retention statement', 'Other statements'])
+tab1, tab2, tab3 = st.tabs(['Copyright statements', 'Rights retention statement', 'Grey literature citation generator'])
 
 with tab1:
     st.subheader('Copyrights statements')
