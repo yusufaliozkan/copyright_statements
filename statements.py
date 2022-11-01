@@ -344,3 +344,11 @@ with st.expander("More"):
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
+
+
+a_link = st.multiselect("choose a link", ['https://discuss.streamlit.io/t/hyperlink-in-streamlit-without-markdown/7046/13','https://twitter.com/home'])
+# mock up of a user who can dynamically change the link, url_a and _b 
+# need to be actual web addresses 
+
+text='check out this [link]({link})'.format(link=a_link)
+st.markdown(link,unsafe_allow_html=True)
