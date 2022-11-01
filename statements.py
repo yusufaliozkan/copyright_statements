@@ -304,7 +304,7 @@ with tab1:
 with tab2:                
     st.subheader('Rights retention statement:')
     st.write("[Rights retention statement](https://www.coalition-s.org/resources/rights-retention-strategy/) allows authors to exercise the rights of their accepted manuscripts. Copy the statement below and paste into your submitted version.")
-    st.success('**'+df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]+'**')
+    st.info('**'+df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]+'**')
     
     text_to_be_copied = df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]
     copy_dict = {"content": text_to_be_copied}
