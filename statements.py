@@ -12,14 +12,14 @@ df['publisher'] = df['publisher'].astype(str)
 df_new=df.sort_values(by='publisher')
 
 # Setting the app page layout
-st.set_page_config(layout = "wide", page_title='Copyright statements dashboard', page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png")
+st.set_page_config(layout = "wide", page_title='Copyright statements tool', page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png")
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
 path2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png'
 st.image(path2, width=75)    
-st.markdown("# Copyright statements dashboard")
+st.markdown("# Copyright statements tool")
 
 st.sidebar.image(path2, width=150)
-st.sidebar.markdown("# Copyright statements dashboard")
+st.sidebar.markdown("# Copyright statements tool")
 
 tab1, tab2, tab3 = st.tabs(['Copyright statements', 'Rights retention statement', 'Grey literature citation generator'])
 
