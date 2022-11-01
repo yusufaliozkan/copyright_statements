@@ -346,7 +346,7 @@ with st.expander("More"):
     local_css("style.css")
 
 
-a_link = st.multiselect("choose a link", ['https://discuss.streamlit.io/t/hyperlink-in-streamlit-without-markdown/7046/13','https://twitter.com/home'])
+a_link = st.multiselect("choose a link", df_new)
 # mock up of a user who can dynamically change the link, url_a and _b 
 # need to be actual web addresses 
 
