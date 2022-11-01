@@ -386,26 +386,7 @@ components.html(
             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             Collapsible Group Item #1
 
-            with tab2:                
-                st.subheader('Rights retention statement:')
-                st.write("[Rights retention statement](https://www.coalition-s.org/resources/rights-retention-strategy/) allows authors to exercise the rights of their accepted manuscripts. Copy the statement below and paste into your submitted version.")
-                st.info('**'+df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]+'**')
-                
-                text_to_be_copied = df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]
-                copy_dict = {"content": text_to_be_copied}
-
-                copy_button = Button(label="Copy to clipboard")
-                copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-                navigator.clipboard.writeText(content);
-                """))
-
-                no_event = streamlit_bokeh_events(
-                copy_button,
-                events="GET_TEXTrrs",
-                key="get_textrrs",
-                refresh_on_update=True,
-                override_height=75,
-                debounce_time=0)
+            st.write('Contact us if you have any questions, comments or questions!')
 
             </button>
           </h5>
