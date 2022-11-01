@@ -249,7 +249,7 @@ with tab1:
         
     with st.expander('All publisher statements'):        
         st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets.')
-        df_new
+        st.dataframe(df_new)
         copy_button = Button(label="Copy data all copyright statements")
         copy_button.js_on_event("button_click", CustomJS(args=dict(df_new=df_new.to_csv(sep='\t')), code="""
             navigator.clipboard.writeText(df_new);
@@ -345,8 +345,3 @@ with st.expander("More"):
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
 
-
-clist2 = df_new['publisher'].unique()
-a_link = st.multiselect("choose a link", clist2)
-df_statement2 = df.loc[df_new['publisher']==a_link, 'statement'].values[0]
-st.write(df_statement2)
