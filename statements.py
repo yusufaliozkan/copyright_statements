@@ -28,6 +28,25 @@ with st.sidebar:
         st.write('Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
     with st.expander('Disclaimer'):
         st.write('Please note that although every effort has been made to keep this list updated, there might be missing, incomplete, or not updated information. If you believe something is wrong, please feel free to get in touch.')
+    with st.expander('Contact us')
+        st.write("**Get in touch!**")   
+        contact_form = """
+        <form action="https://formsubmit.co/yusufaliozkan37@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message here"></textarea>
+            <button type="submit">Send</button>
+        </form>
+        """
+
+        st.markdown(contact_form, unsafe_allow_html=True)
+
+        # Use Local CSS File
+        def local_css(file_name):
+            with open(file_name) as f:
+                st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        local_css("style.css")
 
 tab1, tab2, tab3 = st.tabs(['Publisher and copyright statements', 'Rights retention statement', 'Grey literature citation generator'])
 
