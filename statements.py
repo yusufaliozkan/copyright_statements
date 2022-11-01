@@ -334,7 +334,8 @@ with tab3:
     handle = st.text_input('Publication handle:', '')
     citation = ('© ' + year + ' '+ authors +'. '+"'"+title+"'. "+ '('+type+ ": "+institution+')'+" "+handle)
     if st.button('Show citation'):
-        st.write('**Citation** : '  + citation)
+        st.write('**Citation** : ')
+        st.success(citation)
 
         text_to_be_copied = citation
         copy_dict = {"content": text_to_be_copied}
