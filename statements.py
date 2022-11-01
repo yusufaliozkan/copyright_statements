@@ -12,7 +12,7 @@ df['publisher'] = df['publisher'].astype(str)
 df_new=df.sort_values(by='publisher')
 
 # Setting the app page layout
-st.set_page_config(layout = "centered", page_title='CAPS tool', page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png")
+st.set_page_config(layout = "wide", page_title='CAPS tool', page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png")
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
 path2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png'
 # st.image(path2, width=75)    
