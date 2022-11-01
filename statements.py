@@ -64,7 +64,7 @@ with tab1:
     publisher = st.selectbox("Select a publisher:",clist)
     df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
     st.write('**Publisher statement is:**')
-    st.info(df_statement)
+    st.success(df_statement)
 
     text_to_be_copied = df_statement
     copy_dict = {"content": text_to_be_copied}
