@@ -350,5 +350,4 @@ a_link = st.multiselect("choose a link", df_new)
 # mock up of a user who can dynamically change the link, url_a and _b 
 # need to be actual web addresses 
 
-text='check out this [link]({link})'.format(link=a_link)
-st.markdown(link,unsafe_allow_html=True)
+st.write(df_new)
