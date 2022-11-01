@@ -373,5 +373,5 @@ with st.expander("Contact us"):
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
 
+result = my_component(greeting="Hello", name="Streamlit")
 
-components.iframe("https://spiral.imperial.ac.uk/index.jsp", height=500)
