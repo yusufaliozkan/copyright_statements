@@ -349,5 +349,4 @@ with st.expander("More"):
 clist2 = df_new['publisher'].unique()
 a_link = st.multiselect("choose a link", clist2)
 df_statement2 = df.loc[df_new['publisher']==a_link, 'statement'].values[0]
-
-st.write('**Publisher statement is:**\n' +'\n'+ df_statement2)
+st.write(df_statement2)
