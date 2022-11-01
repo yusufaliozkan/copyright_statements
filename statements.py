@@ -372,8 +372,11 @@ with st.expander("Contact us"):
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
 
+
+
+
 clist2 = df_new['publisher'].unique()
 
 options = st.multiselect('Select a publisher:', clist2)
-publisherss = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
+publisherss = df.loc[df_new['publisher']==options, 'statement'].values[0]
 st.write(publisherss)
