@@ -17,7 +17,7 @@ st.set_page_config(
     page_title='CAPS tool', 
     page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png",
     menu_items={
-        'Source code': 'https://github.com/YusufAliOzkan/copyright_statements',
+        'Get Help': 'https://github.com/YusufAliOzkan/copyright_statements',
         'About': "This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the Frequently used publisher statements. You can also find an example of rights retention statement if you wish to add it to your submitted manuscript. The tool also has a quick citation generator for ‘grey literature’ items."
     }
 )
