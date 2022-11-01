@@ -18,8 +18,8 @@ path2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg
 st.image(path2, width=75)    
 st.markdown("# CAPS (Copyright and Publisher Statements) tool")
 st.markdown('#### About:')
-st.write('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the [Frequently used publisher statements](https://copyright-statements.streamlitapp.com/#frequently-used-publisher-statements). You can also find an example of rights retention statement if you wish to add it to your submitted manuscript. The tool also has a quick citation generator for ‘grey literature’ items.')
-st.write('You can find the contact information, source code of this tool, and disclaimer at the bottom of this page.')
+st.write('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the [Frequently used publisher statements](https://copyright-statements.streamlitapp.com/#frequently-used-publisher-statements). You can also find an example of [rights retention statement](https://copyright-statements.streamlitapp.com/#rights-retention-statement) if you wish to add it to your submitted manuscript. The tool also has a [quick citation generator](https://copyright-statements.streamlitapp.com/#grey-literature-citation-generator) for ‘grey literature’ items.')
+st.write('To see the contact information, source code of this tool, and disclaimer, click *More* at the bottom of this page.')
 
 st.sidebar.image(path2, width=150)
 st.sidebar.markdown("# CAPS tool")
@@ -320,9 +320,11 @@ with tab3:
         override_height=75,
         debounce_time=0)   
 
-with st.expander("About"):
+with st.expander("More"):
     st.write('This app was launched in October 2022.')
     st.write('Source code of this app is available\n [here](https://github.com/YusufAliOzkan/copyright_statements).')
+    st.write(' *Disclaimer* : Please note that although every effort has been made to keep this list updated, there might be missing, incomplete, or not updated information. If you believe something is wrong, please feel free to get in touch.')
+
     st.write("**Get in touch!**")   
     contact_form = """
     <form action="https://formsubmit.co/yusufaliozkan37@gmail.com" method="POST">
