@@ -61,7 +61,7 @@ with tab1:
     st.subheader('Publisher and copyright statements')
     st.write('This page lists set publisher statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
     clist = df_new['publisher'].unique()
-    publisher = st.selectbox(" **Select a publisher** :",clist)
+    publisher = st.selectbox("Select a publisher:",clist)
     df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
     st.write('**Publisher statement is:**')
     st.info(df_statement)
