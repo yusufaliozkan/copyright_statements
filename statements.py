@@ -28,11 +28,11 @@ st.markdown("# CAPS (Copyright and Publisher Statements) tool")
 with st.sidebar:
     st.image(path2, width=150)
     st.markdown("# CAPS tool")  
-    with st.info.expander('About'):  
-        st.info('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the Frequently used publisher statements. You can also find an example of rights retention statement if you wish to add it to your submitted manuscript. The tool also has a quick citation generator for ‘grey literature’ items.')
+    with st.expander('About'):  
+        st.write('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the Frequently used publisher statements. You can also find an example of rights retention statement if you wish to add it to your submitted manuscript. The tool also has a quick citation generator for ‘grey literature’ items.')
         st.write('Contact us if you have any questions, comments or questions!')
     with st.expander('Source code'):
-        st.write('Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
+        st.info('Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
     with st.expander('Disclaimer'):
         st.warning('Please note that although every effort has been made to keep this list updated, there might be missing, incomplete, or not updated information. If you believe something is wrong, please feel free to get in touch.', icon="ℹ️")
     with st.expander('Contact us'):
