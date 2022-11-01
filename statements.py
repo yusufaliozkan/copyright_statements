@@ -19,7 +19,7 @@ st.image(path2, width=75)
 st.markdown("# CAPS (Copyright and Publisher Statements) tool")
 
 st.sidebar.image(path2, width=150)
-st.sidebar.markdown("# CAPS (Copyright and Publisher Statements) tool")
+st.sidebar.markdown("# CAPS tool")
 
 tab1, tab2, tab3 = st.tabs(['Copyright statements', 'Rights retention statement', 'Grey literature citation generator'])
 
