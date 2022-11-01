@@ -34,7 +34,7 @@ with st.sidebar:
     with st.expander('Source code'):
         st.info('CAPSv1.0. Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
     with st.expander('Disclaimer'):
-        st.warning('Please note that although every effort has been made to keep this list updated, there might be missing, incomplete, or not updated information. If you believe something is wrong, please feel free to get in touch.', icon="ℹ️")
+        st.info('Please note that although every effort has been made to keep this list updated, there might be missing, incomplete, or not updated information. If you believe something is wrong, please feel free to get in touch.', icon="ℹ️")
     with st.expander('Contact us'):
         st.write("**Get in touch!**")   
         contact_form = """
