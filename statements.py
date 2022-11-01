@@ -375,5 +375,5 @@ with st.expander("Contact us"):
 
 
 
-components.iframe("https://www.zotero.org/groups/2514686/intelligence_bibliography/library", height=600)
+components.iframe("https://www.zotero.org/groups/2514686/intelligence_bibliography/library", height=1200)
 
