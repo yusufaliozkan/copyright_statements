@@ -346,8 +346,11 @@ with st.expander("More"):
     local_css("style.css")
 
 
-a_link = st.multiselect("choose a link", df_new['publisher'])
-# mock up of a user who can dynamically change the link, url_a and _b 
-# need to be actual web addresses 
+clist = df_new['publisher'].unique()
 
-st.write(df_new['publisher']=='statement')
+
+a_link = st.multiselect("choose a link", clist)
+
+df_statement2 = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
+st.write('**Publisher statement is:**\n' +'\n'+ df_statement2)
+
