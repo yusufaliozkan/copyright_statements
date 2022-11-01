@@ -18,7 +18,7 @@ path2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg
 st.image(path2, width=75)    
 st.markdown("# CAPS (Copyright and Publisher Statements) tool")
 st.markdown('#### About:')
-st.write('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the [Frequently used publisher statements](https://copyright-statements.streamlitapp.com/#frequently-used-publisher-statements). You can also find an example of [rights retention statement](https://copyright-statements.streamlitapp.com/#rights-retention-statement) if you wish to add it to your submitted manuscript. The tool also has a [quick citation generator](https://copyright-statements.streamlitapp.com/#grey-literature-citation-generator) for ‘grey literature’ items.')
+st.write('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the Frequently used publisher statements. You can also find an example of rights retention statement if you wish to add it to your submitted manuscript. The tool also has a quick citation generator for ‘grey literature’ items.')
 st.write('To see the contact information, source code of this tool, and disclaimer, click **More** at the bottom of this page.')
 
 st.sidebar.image(path2, width=150)
