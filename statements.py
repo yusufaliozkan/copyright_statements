@@ -346,8 +346,8 @@ with st.expander("More"):
     local_css("style.css")
 
 
-a_link = st.multiselect("choose a link", df_new)
+a_link = st.multiselect("choose a link", df_new['publisher'])
 # mock up of a user who can dynamically change the link, url_a and _b 
 # need to be actual web addresses 
 
-st.write(df_new)
+st.write(df_new['publisher']=='statement')
