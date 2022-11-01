@@ -344,12 +344,7 @@ with tab3:
         override_height=75,
         debounce_time=0)   
 
-with st.expander("More"):
-    st.write('This app was launched in October 2022.')
-    st.write('Source code of this app is available\n [here](https://github.com/YusufAliOzkan/copyright_statements).')
-    st.write(' **Disclaimer** : Please note that although every effort has been made to keep this list updated, there might be missing, incomplete, or not updated information. If you believe something is wrong, please feel free to get in touch.')
-
-    st.write("**Get in touch!**")   
+with st.expander("Contact us"):
     contact_form = """
     <form action="https://formsubmit.co/yusufaliozkan37@gmail.com" method="POST">
          <input type="hidden" name="_captcha" value="false">
