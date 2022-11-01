@@ -28,7 +28,7 @@ st.markdown("# CAPS (Copyright and Publisher Statements) tool")
 with st.sidebar:
     st.image(path2, width=150)
     st.markdown("# CAPS tool")  
-    with st.expander('About'):  
+    with st.expander.info('About'):  
         st.info('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the Frequently used publisher statements. You can also find an example of rights retention statement if you wish to add it to your submitted manuscript. The tool also has a quick citation generator for ‘grey literature’ items.')
         st.write('Contact us if you have any questions, comments or questions!')
     with st.expander('Source code'):
