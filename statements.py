@@ -17,15 +17,17 @@ path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_Col
 path2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png'
 st.image(path2, width=75)    
 st.markdown("# CAPS (Copyright and Publisher Statements) tool")
+st.markdown('### About:')
+st.write('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the Frequently used publisher statements. You can also find an example of rights retention statement if you wish to add it to your submitted manuscript. The tool also has a quick citation generator for ‘grey literature’ items.')
 
 st.sidebar.image(path2, width=150)
 st.sidebar.markdown("# CAPS tool")
 
-tab1, tab2, tab3 = st.tabs(['Copyright statements', 'Rights retention statement', 'Grey literature citation generator'])
+tab1, tab2, tab3 = st.tabs(['Publisher and copyright statements', 'Rights retention statement', 'Grey literature citation generator'])
 
 with tab1:
-    st.subheader('Copyrights statements')
-    st.write('This page shows set copyright statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
+    st.subheader('Publisher and copyright statements')
+    st.write('This page lists set publisher statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
     clist = df_new['publisher'].unique()
     publisher = st.selectbox("Select a publisher:",clist)
     df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
@@ -46,7 +48,7 @@ with tab1:
         refresh_on_update=True,
         override_height=75,
         debounce_time=0)
-    st.subheader('Frequently used copyright statements')
+    st.subheader('Frequently used publisher statements')
     st.write('Publisher statements. Click on the button to copy the statement.')
 
     col1, col2, col3, col4 = st.columns(4)
