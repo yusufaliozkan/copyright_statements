@@ -375,3 +375,11 @@ with st.expander("Contact us"):
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
+
+
+    components.html("""
+              <div id="jisc_container_div"></div>
+          <script id="irus-api-script" src="https://irus.jisc.ac.uk/js/irus_pr_widget.js?RID=108"></script>    
+    """
+    
+    )
