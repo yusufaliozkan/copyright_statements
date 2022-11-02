@@ -354,7 +354,7 @@ with tab3:
         override_height=75,
         debounce_time=0)   
 
-with st.expander("Contact us"):
+with st.expander("Sherpa Romeo"):
     components.iframe("https://v2.sherpa.ac.uk/romeo/", height=1500)
 
 with st.expander("Contact us"):
