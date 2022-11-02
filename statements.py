@@ -353,9 +353,9 @@ with tab3:
         refresh_on_update=True,
         override_height=75,
         debounce_time=0)   
-        
+
 with st.expander("Contact us"):
-    components.iframe("https://v2.sherpa.ac.uk/romeo/", height=1200)
+    components.iframe("https://v2.sherpa.ac.uk/romeo/", height=1500)
 
 with st.expander("Contact us"):
     contact_form = """
