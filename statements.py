@@ -375,8 +375,3 @@ with st.expander("Contact us"):
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
-
-
-
-components.iframe("https://v2.sherpa.ac.uk/romeo/", height=1200)
-
