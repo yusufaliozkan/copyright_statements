@@ -375,5 +375,5 @@ with st.expander("Contact us"):
 
 
 
-components.iframe("https://v2.sherpa.ac.uk/romeo/", height=800)
+components.iframe("https://v2.sherpa.ac.uk/romeo/", height=1200)
 
