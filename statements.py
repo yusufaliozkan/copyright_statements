@@ -380,6 +380,7 @@ with st.expander("Contact us"):
     components.html("""
               <div id="jisc_container_div"></div>
           <script id="irus-api-script" src="https://irus.jisc.ac.uk/js/irus_pr_widget.js?RID=108"></script>    
-    """
+    """,
+    height=600,
     
     )
