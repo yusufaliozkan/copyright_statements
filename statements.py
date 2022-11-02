@@ -376,4 +376,4 @@ with st.expander("Contact us"):
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
 
-st.write(Wrong_file.html)
+st.write(Wrong_file.txt)
