@@ -377,11 +377,11 @@ with st.expander("Contact us"):
     local_css("style.css")
 
 
-    components.html(
-    """
-    <div id="irus_widget_container"></div>
-    <script id="irus_pr_widget" src="https://irus.jisc.ac.uk/r5/uk/js/irus_pr_widget.js?requestor_id=9af515b24d145ff4d79c8de09d6eaad2&platform=23&metric_type=Total_Item_Requests&show_item_types=1&start_date=2022-04&end_date=2022-09"></script>
-    """,
-    height=600,
-    
-    )
+components.html(
+"""
+<div id="irus_widget_container"></div>
+<script id="irus_pr_widget" src="https://irus.jisc.ac.uk/r5/uk/js/irus_pr_widget.js?requestor_id=9af515b24d145ff4d79c8de09d6eaad2&platform=23&metric_type=Total_Item_Requests&show_item_types=1&start_date=2022-04&end_date=2022-09"></script>
+""",
+height=600,
+
+)
