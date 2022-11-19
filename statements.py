@@ -104,8 +104,8 @@ with tab1:
 
         no_event = streamlit_bokeh_events(
             copy_button,
-            events="GET_TEXTwww",
-            key="get_textwww",
+            events="GET_TEXTfu1",
+            key="get_textfu1",
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
@@ -113,6 +113,11 @@ with tab1:
     with col3:
         pass
 
+    st.write('Publisher statements:')
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        df_copyright = df.loc[df_new['publisher'].isin(['CC BY licence', 'CC BY-NC licence', 'CC BY-NC-ND licence', 'CC BY-NC-SA licence', 'CC BY-SA licence'])]
+        df_copyright    
 
     # show = st.checkbox('Display statements')
 
