@@ -85,7 +85,7 @@ with tab1:
 
     st.subheader('Frequently used statements')
     st.write('Publisher statements:')
-    col1, col2 = st.columns([1,1])
+    col1, col2, col3 = st.columns(3)
     with col1:
         df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
         frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
@@ -95,6 +95,7 @@ with tab1:
         st.write('**Publisher statement is:**')
         st.caption(text_to_be_copied)
 
+    with col3:
         copy_dict = {"content": text_to_be_copied} 
 
         copy_button = Button(label="Copy to clipboard")
