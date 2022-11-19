@@ -86,163 +86,184 @@ with tab1:
     st.subheader('Frequently used publisher statements')
     st.write('Publisher statements. Click on the button to copy the statement.')
 
-    show = st.checkbox('Display statements')
+    df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
+    df_frequent
+    frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
+    text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
+    st.write(text_to_be_copied)
 
-    col1, col2, col3, col4 = st.columns(4)
+    copy_dict = {"content": text_to_be_copied} 
 
-    with col1:
-        text_to_be_copied = df.loc[df_new['publisher']=='Elsevier', 'statement'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+    copy_button = Button(label="Copy to clipboard")
+    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+        navigator.clipboard.writeText(content);
+        """))
 
-        copy_button = Button(label="Elsevier")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+    no_event = streamlit_bokeh_events(
+        copy_button,
+        events="GET_TEXTwww",
+        key="get_textwww",
+        refresh_on_update=True,
+        override_height=75,
+        debounce_time=0)
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXTqqq",
-            key="get_textqqq",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-        if show:
-            st.caption(text_to_be_copied)
+    # show = st.checkbox('Display statements')
 
-    with col2:
-        text_to_be_copied = df.loc[df_new['publisher']=='Wiley', 'statement'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+    # col1, col2, col3, col4 = st.columns(4)
 
-        copy_button = Button(label="Wiley")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+    # with col1:
+    #     text_to_be_copied = df.loc[df_new['publisher']=='Elsevier', 'statement'].values[0]
+    #     copy_dict = {"content": text_to_be_copied}
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXTwww",
-            key="get_textwww",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-        if show:
-            st.caption(text_to_be_copied)
+    #     copy_button = Button(label="Elsevier")
+    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    #         navigator.clipboard.writeText(content);
+    #         """))
 
-    with col3:
-        text_to_be_copied = df.loc[df_new['publisher']=='Springer Nature', 'statement'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+    #     no_event = streamlit_bokeh_events(
+    #         copy_button,
+    #         events="GET_TEXTqqq",
+    #         key="get_textqqq",
+    #         refresh_on_update=True,
+    #         override_height=75,
+    #         debounce_time=0)
+    #     if show:
+    #         st.caption(text_to_be_copied)
 
-        copy_button = Button(label="Springer Nature")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+    # with col2:
+    #     text_to_be_copied = df.loc[df_new['publisher']=='Wiley', 'statement'].values[0]
+    #     copy_dict = {"content": text_to_be_copied}
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT5",
-            key="get_text5",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-        if show:
-            st.caption(text_to_be_copied)
+    #     copy_button = Button(label="Wiley")
+    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    #         navigator.clipboard.writeText(content);
+    #         """))
 
-    with col4:
-        text_to_be_copied = df.loc[df_new['publisher']=='IEEE ', 'statement'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+    #     no_event = streamlit_bokeh_events(
+    #         copy_button,
+    #         events="GET_TEXTwww",
+    #         key="get_textwww",
+    #         refresh_on_update=True,
+    #         override_height=75,
+    #         debounce_time=0)
+    #     if show:
+    #         st.caption(text_to_be_copied)
 
-        copy_button = Button(label="IEEE")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+    # with col3:
+    #     text_to_be_copied = df.loc[df_new['publisher']=='Springer Nature', 'statement'].values[0]
+    #     copy_dict = {"content": text_to_be_copied}
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT6",
-            key="get_text6",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-        if show:
-            st.caption(text_to_be_copied)
+    #     copy_button = Button(label="Springer Nature")
+    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    #         navigator.clipboard.writeText(content);
+    #         """))
 
-    col1, col2, col3, col4 = st.columns(4)
+    #     no_event = streamlit_bokeh_events(
+    #         copy_button,
+    #         events="GET_TEXT5",
+    #         key="get_text5",
+    #         refresh_on_update=True,
+    #         override_height=75,
+    #         debounce_time=0)
+    #     if show:
+    #         st.caption(text_to_be_copied)
 
-    with col1:
-        text_to_be_copied = df.loc[df_new['publisher']=='SAGE publications', 'statement'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+    # with col4:
+    #     text_to_be_copied = df.loc[df_new['publisher']=='IEEE ', 'statement'].values[0]
+    #     copy_dict = {"content": text_to_be_copied}
 
-        copy_button = Button(label="SAGE publications")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+    #     copy_button = Button(label="IEEE")
+    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    #         navigator.clipboard.writeText(content);
+    #         """))
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT7",
-            key="get_text7",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-        if show:
-            st.caption(text_to_be_copied)
+    #     no_event = streamlit_bokeh_events(
+    #         copy_button,
+    #         events="GET_TEXT6",
+    #         key="get_text6",
+    #         refresh_on_update=True,
+    #         override_height=75,
+    #         debounce_time=0)
+    #     if show:
+    #         st.caption(text_to_be_copied)
 
-    with col2:
-        text_to_be_copied = df.loc[df_new['publisher']=='BMJ Publishing', 'statement'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+    # col1, col2, col3, col4 = st.columns(4)
 
-        copy_button = Button(label="BMJ Publishing")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+    # with col1:
+    #     text_to_be_copied = df.loc[df_new['publisher']=='SAGE publications', 'statement'].values[0]
+    #     copy_dict = {"content": text_to_be_copied}
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT8",
-            key="get_text8",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-        if show:
-            st.caption(text_to_be_copied)
+    #     copy_button = Button(label="SAGE publications")
+    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    #         navigator.clipboard.writeText(content);
+    #         """))
 
-    with col3:
-        text_to_be_copied = df.loc[df_new['publisher']=='Oxford University Press (OUP)', 'statement'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+    #     no_event = streamlit_bokeh_events(
+    #         copy_button,
+    #         events="GET_TEXT7",
+    #         key="get_text7",
+    #         refresh_on_update=True,
+    #         override_height=75,
+    #         debounce_time=0)
+    #     if show:
+    #         st.caption(text_to_be_copied)
 
-        copy_button = Button(label="Oxford University Press (OUP)")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+    # with col2:
+    #     text_to_be_copied = df.loc[df_new['publisher']=='BMJ Publishing', 'statement'].values[0]
+    #     copy_dict = {"content": text_to_be_copied}
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT9",
-            key="get_text9",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-        if show:
-            st.caption(text_to_be_copied)
+    #     copy_button = Button(label="BMJ Publishing")
+    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    #         navigator.clipboard.writeText(content);
+    #         """))
 
-    with col4:
-        text_to_be_copied = df.loc[df_new['publisher']=='American Chemical Society', 'statement'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+    #     no_event = streamlit_bokeh_events(
+    #         copy_button,
+    #         events="GET_TEXT8",
+    #         key="get_text8",
+    #         refresh_on_update=True,
+    #         override_height=75,
+    #         debounce_time=0)
+    #     if show:
+    #         st.caption(text_to_be_copied)
 
-        copy_button = Button(label="American Chemical Society")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+    # with col3:
+    #     text_to_be_copied = df.loc[df_new['publisher']=='Oxford University Press (OUP)', 'statement'].values[0]
+    #     copy_dict = {"content": text_to_be_copied}
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT10",
-            key="get_text10",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-        if show:
-            st.caption(text_to_be_copied)
+    #     copy_button = Button(label="Oxford University Press (OUP)")
+    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    #         navigator.clipboard.writeText(content);
+    #         """))
+
+    #     no_event = streamlit_bokeh_events(
+    #         copy_button,
+    #         events="GET_TEXT9",
+    #         key="get_text9",
+    #         refresh_on_update=True,
+    #         override_height=75,
+    #         debounce_time=0)
+    #     if show:
+    #         st.caption(text_to_be_copied)
+
+    # with col4:
+    #     text_to_be_copied = df.loc[df_new['publisher']=='American Chemical Society', 'statement'].values[0]
+    #     copy_dict = {"content": text_to_be_copied}
+
+    #     copy_button = Button(label="American Chemical Society")
+    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    #         navigator.clipboard.writeText(content);
+    #         """))
+
+    #     no_event = streamlit_bokeh_events(
+    #         copy_button,
+    #         events="GET_TEXT10",
+    #         key="get_text10",
+    #         refresh_on_update=True,
+    #         override_height=75,
+    #         debounce_time=0)
+    #     if show:
+    #         st.caption(text_to_be_copied)
 
     st.write('Creative Commons statements. Click on the button to copy the statement.')
 
