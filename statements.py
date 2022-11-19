@@ -123,7 +123,7 @@ with tab1:
         text_to_be_copied2 = df.loc[df_new['publisher']==copyright, 'statement'].values[0]
 
     with col2:
-        st.write('**Statement:**')
+        st.write('**Statement for :**' + copyright)
         st.caption(text_to_be_copied2)
 
         copy_dict = {"content": text_to_be_copied2} 
