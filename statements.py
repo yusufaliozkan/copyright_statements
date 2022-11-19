@@ -92,7 +92,7 @@ with tab1:
         text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
 
     with col2:
-        st.write('**Publisher statement is:**')
+        st.write('**Statement:**')
         st.caption(text_to_be_copied)
 
         copy_dict = {"content": text_to_be_copied} 
@@ -121,7 +121,7 @@ with tab1:
         text_to_be_copied2 = df.loc[df_new['publisher']==copyright, 'statement'].values[0]
 
     with col2:
-        st.write('**Statement is:**')
+        st.write('**Statement:**')
         st.caption(text_to_be_copied2)
 
         copy_dict = {"content": text_to_be_copied2} 
