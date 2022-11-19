@@ -70,7 +70,7 @@ with tab1:
         publisher = st.selectbox("Select a publisher:",clist)
         df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
     with col2:
-        st.write('**Publisher statement is:**')
+        st.write(publisher + ' **statement is:**')
         st.info(df_statement)
 
         text_to_be_copied = df_statement
