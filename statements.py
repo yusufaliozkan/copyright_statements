@@ -245,9 +245,9 @@ with tab1:
             st.caption(text_to_be_copied)
 
     st.write('Creative Commons statements. Click on the button to copy the statement.')
+    show2 = st.checkbox('Display statements')
 
     col1, col2, col3 = st.columns(3)
-    show2 = st.checkbox('Display statements')
 
     with col1:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY licence', 'statement'].values[0]
