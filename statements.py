@@ -248,7 +248,7 @@ with tab1:
 
     col1, col2, col3 = st.columns(3)
 
-    show = st.checkbox('Display statements')
+    show2 = st.checkbox('Display statements')
 
     with col1:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY licence', 'statement'].values[0]
