@@ -117,8 +117,6 @@ with tab1:
             override_height=75,
             debounce_time=0)
 
-    with col3:
-        pass
 
 
     st.write('CC BY licence statements:')
