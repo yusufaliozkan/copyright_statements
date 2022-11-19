@@ -248,6 +248,8 @@ with tab1:
 
     col1, col2, col3 = st.columns(3)
 
+    show = st.checkbox('Display statements')
+
     with col1:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY licence', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
