@@ -302,9 +302,9 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-          if show:
+        if show:
             st.caption(text_to_be_copied)
-                  
+
     with st.expander('All publisher statements'):        
         st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets.')
         st.dataframe(df_new)
