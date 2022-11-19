@@ -245,7 +245,6 @@ with tab1:
             st.caption(text_to_be_copied)
 
     st.write('Creative Commons statements. Click on the button to copy the statement.')
-    show2 = st.checkbox('Display statements')
 
     col1, col2, col3 = st.columns(3)
 
@@ -265,7 +264,7 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-        if show2:
+        if show:
             st.caption(text_to_be_copied)
 
     with col2:
@@ -284,6 +283,8 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
 
     with col3:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC-ND licence', 'statement'].values[0]
@@ -301,7 +302,9 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-        
+          if show:
+            st.caption(text_to_be_copied)
+                  
     with st.expander('All publisher statements'):        
         st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets.')
         st.dataframe(df_new)
