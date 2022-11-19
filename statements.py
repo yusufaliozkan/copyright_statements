@@ -62,27 +62,32 @@ tab1, tab2, tab3 = st.tabs(['Publisher and copyright statements', 'Rights retent
 with tab1:
     st.subheader('Publisher and copyright statements')
     st.write('This page lists set publisher statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
-    clist = df_new['publisher'].unique()
-    publisher = st.selectbox("Select a publisher:",clist)
-    df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
-    st.write('**Publisher statement is:**')
-    st.info(df_statement)
+    
+    col1, col2 = st.columns(2)
+    with col1:
 
-    text_to_be_copied = df_statement
-    copy_dict = {"content": text_to_be_copied}
+        clist = df_new['publisher'].unique()
+        publisher = st.selectbox("Select a publisher:",clist)
+        df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
+    with col2:
+        st.write('**Publisher statement is:**')
+        st.info(df_statement)
 
-    copy_button = Button(label="Copy to clipboard")
-    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-        navigator.clipboard.writeText(content);
-        """))
+        text_to_be_copied = df_statement
+        copy_dict = {"content": text_to_be_copied}
 
-    no_event = streamlit_bokeh_events(
-        copy_button,
-        events="GET_TEXT",
-        key="get_text",
-        refresh_on_update=True,
-        override_height=75,
-        debounce_time=0)
+        copy_button = Button(label="Copy to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXT",
+            key="get_text",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
 
 
     st.subheader('Frequently used statements')
