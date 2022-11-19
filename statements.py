@@ -247,7 +247,6 @@ with tab1:
     st.write('Creative Commons statements. Click on the button to copy the statement.')
 
     col1, col2, col3 = st.columns(3)
-
     show2 = st.checkbox('Display statements')
 
     with col1:
