@@ -117,10 +117,8 @@ with tab1:
             override_height=75,
             debounce_time=0)
 
-
-
     st.write('CC BY licence statements:')
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns([1,2])
     with col1:
         df_copyright = df.loc[df_new['publisher'].isin(['CC BY licence', 'CC BY-NC licence', 'CC BY-NC-ND licence', 'CC BY-NC-SA licence', 'CC BY-SA licence'])]
         copyright = st.radio('Select a publisher to display the statement', df_copyright['publisher']) 
@@ -144,8 +142,7 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-    with col3:
-        pass
+
     # show = st.checkbox('Display statements')
 
     # col1, col2, col3, col4 = st.columns(4)
