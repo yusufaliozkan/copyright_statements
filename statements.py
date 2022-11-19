@@ -60,7 +60,7 @@ with st.sidebar:
 tab1, tab2, tab3 = st.tabs(['Publisher and copyright statements', 'Rights retention statement', 'Grey literature citation generator'])
 
 with tab1:
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1,2])
     with col1:
         st.subheader('Publisher and copyright statements')
         st.write('This page lists set publisher statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
@@ -88,7 +88,7 @@ with tab1:
     with col2:
         st.subheader('Frequently used statements')
         st.write('Publisher statements:')
-        col1, col2 = st.columns([3,1])
+        col1, col2 = st.columns(2)
         with col1:
             df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
             frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
