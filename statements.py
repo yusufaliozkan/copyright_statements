@@ -33,6 +33,12 @@ with st.sidebar:
     with st.expander('About'):  
         st.write('This tool lists different copyright and publisher set statements and allows users to copy the statements to their clipboard. You can select the publisher statements from the dropdown menu or find the Frequently used publisher statements. You can also find an example of rights retention statement if you wish to add it to your submitted manuscript. The tool also has a quick citation generator for ‘grey literature’ items.')
         st.write('Contact us if you have any questions, comments or questions!')
+        components.html(
+"""
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+"""
+
+)
     with st.expander('Source code'):
         st.info('CAPSv1.1. Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
     with st.expander('Disclaimer'):
@@ -450,10 +456,3 @@ with st.expander("Contact us"):
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     local_css("style.css")
-
-components.html(
-"""
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-"""
-
-)
