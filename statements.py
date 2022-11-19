@@ -270,7 +270,7 @@ with tab1:
 
     st.write('Creative Commons statements. Click on the button to copy the statement.')
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns([2,1])
 
     with col1:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY licence', 'statement'].values[0]
