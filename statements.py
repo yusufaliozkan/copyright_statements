@@ -95,7 +95,6 @@ with tab1:
         st.write('**Publisher statement is:**')
         st.caption(text_to_be_copied)
 
-    with col3:
         copy_dict = {"content": text_to_be_copied} 
 
         copy_button = Button(label="Copy to clipboard")
@@ -110,6 +109,10 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+
+    with col3:
+        pass
+
 
     # show = st.checkbox('Display statements')
 
