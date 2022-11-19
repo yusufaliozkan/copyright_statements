@@ -89,7 +89,8 @@ with tab1:
     df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
     frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
     text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
-    st.write(text_to_be_copied)
+    st.write('**Publisher statement is:**')
+    st.caption(text_to_be_copied)
 
     copy_dict = {"content": text_to_be_copied} 
 
