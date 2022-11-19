@@ -11,7 +11,6 @@ import streamlit.components.v1 as components
 df = pd.read_csv(r'statements.csv')
 df['publisher'] = df['publisher'].astype(str)
 df_rrs = df.copy()
-df_rrs
 df['statement'] = 'Copyright ' + df['statement'].astype(str)
 df_new=df.sort_values(by='publisher')
 
