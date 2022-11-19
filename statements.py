@@ -91,15 +91,14 @@ with tab1:
 
 
     st.subheader('Frequently used statements')
-    st.write('Publisher statements:')
     col1, col2 = st.columns([1,2])
     with col1:
         df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
-        frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
+        frequently = st.radio('Choose a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
         text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
 
     with col2:
-        st.write('**Statement:**')
+        st.write('**Statement for:**' + text_to_be_copied)
         st.caption(text_to_be_copied)
 
         copy_dict = {"content": text_to_be_copied} 
@@ -117,11 +116,10 @@ with tab1:
             override_height=75,
             debounce_time=0)
 
-    st.write('**CC BY licence statements**:')
     col1, col2 = st.columns([1,2])
     with col1:
         df_copyright = df.loc[df_new['publisher'].isin(['CC BY licence', 'CC BY-NC licence', 'CC BY-NC-ND licence', 'CC BY-NC-SA licence', 'CC BY-SA licence'])]
-        copyright = st.radio('Select a publisher to display the statement', df_copyright['publisher']) 
+        copyright = st.radio('Choose a CC licence to display the statement', df_copyright['publisher']) 
         text_to_be_copied2 = df.loc[df_new['publisher']==copyright, 'statement'].values[0]
 
     with col2:
