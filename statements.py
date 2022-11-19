@@ -118,7 +118,7 @@ with tab1:
     with col1:
         df_copyright = df.loc[df_new['publisher'].isin(['CC BY licence', 'CC BY-NC licence', 'CC BY-NC-ND licence', 'CC BY-NC-SA licence', 'CC BY-SA licence'])]
         copyright = st.radio('Select a publisher to display the statement', df_copyright['publisher']) 
-        text_to_be_copied2 = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
+        text_to_be_copied2 = df.loc[df_new['publisher']==copyright, 'statement'].values[0]
 
     with col2:
         st.write('**Statement is:**')
