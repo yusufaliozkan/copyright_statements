@@ -10,6 +10,7 @@ import streamlit.components.v1 as components
 # Exporting dataset
 df = pd.read_csv(r'statements.csv')
 df['publisher'] = df['publisher'].astype(str)
+df_rrs = df.copy()
 df['statement'] = 'Copyright ' + df['statement'].astype(str)
 df_new=df.sort_values(by='publisher')
 
@@ -386,7 +387,7 @@ with tab1:
 with tab2:                
     st.subheader('Rights retention statement:')
     st.write("[Rights retention statement](https://www.coalition-s.org/resources/rights-retention-strategy/) allows authors to exercise the rights of their accepted manuscripts. Copy the statement below and paste into your submitted version.")
-    st.info('**'+df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]+'**')
+    st.info('**'+df.loc[df_rrs['publisher']=='Rights retention statement', 'statement'].values[0]+'**')
     
     text_to_be_copied = df.loc[df_new['publisher']=='Rights retention statement', 'statement'].values[0]
     copy_dict = {"content": text_to_be_copied}
