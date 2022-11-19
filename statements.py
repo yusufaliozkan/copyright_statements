@@ -82,8 +82,11 @@ with tab1:
         refresh_on_update=True,
         override_height=75,
         debounce_time=0)
+
     st.subheader('Frequently used publisher statements')
     st.write('Publisher statements. Click on the button to copy the statement.')
+
+    show = st.checkbox('Display statements')
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -98,11 +101,13 @@ with tab1:
 
         no_event = streamlit_bokeh_events(
             copy_button,
-            events="GET_TEXT3",
-            key="get_text3",
+            events="GET_TEXTqqq",
+            key="get_textqqq",
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
 
     with col2:
         text_to_be_copied = df.loc[df_new['publisher']=='Wiley', 'statement'].values[0]
@@ -115,11 +120,13 @@ with tab1:
 
         no_event = streamlit_bokeh_events(
             copy_button,
-            events="GET_TEXT4",
-            key="get_text4",
+            events="GET_TEXTwww",
+            key="get_textwww",
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
 
     with col3:
         text_to_be_copied = df.loc[df_new['publisher']=='Springer Nature', 'statement'].values[0]
@@ -137,6 +144,8 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
 
     with col4:
         text_to_be_copied = df.loc[df_new['publisher']=='IEEE ', 'statement'].values[0]
@@ -154,6 +163,8 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -173,6 +184,9 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
+
     with col2:
         text_to_be_copied = df.loc[df_new['publisher']=='BMJ Publishing', 'statement'].values[0]
         copy_dict = {"content": text_to_be_copied}
@@ -189,6 +203,8 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
 
     with col3:
         text_to_be_copied = df.loc[df_new['publisher']=='Oxford University Press (OUP)', 'statement'].values[0]
@@ -206,6 +222,8 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
 
     with col4:
         text_to_be_copied = df.loc[df_new['publisher']=='American Chemical Society', 'statement'].values[0]
@@ -223,6 +241,8 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show:
+            st.caption(text_to_be_copied)
 
     st.write('Creative Commons statements. Click on the button to copy the statement.')
 
