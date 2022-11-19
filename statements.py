@@ -93,7 +93,7 @@ with tab1:
 
     with col2:
         st.write('**Publisher statement is:**')
-        st.info(st.caption(text_to_be_copied))
+        st.caption(text_to_be_copied))
 
         copy_dict = {"content": text_to_be_copied} 
 
