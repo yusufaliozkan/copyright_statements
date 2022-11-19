@@ -133,8 +133,8 @@ with tab1:
 
         no_event = streamlit_bokeh_events(
             copy_button,
-            events="GET_TEXTfu1",
-            key="get_textfu1",
+            events="GET_TEXTfu2",
+            key="get_textfu2",
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
