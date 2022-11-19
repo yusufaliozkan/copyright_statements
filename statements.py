@@ -10,6 +10,7 @@ import streamlit.components.v1 as components
 # Exporting dataset
 df = pd.read_csv(r'statements.csv')
 df['publisher'] = df['publisher'].astype(str)
+df['statement'] = 'Copyright ' + df['statement'].astype(str)
 df_new=df.sort_values(by='publisher')
 
 # Setting the app page layout
