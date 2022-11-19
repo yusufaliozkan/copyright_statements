@@ -118,13 +118,13 @@ with tab1:
     with col1:
         df_copyright = df.loc[df_new['publisher'].isin(['CC BY licence', 'CC BY-NC licence', 'CC BY-NC-ND licence', 'CC BY-NC-SA licence', 'CC BY-SA licence'])]
         copyright = st.radio('Select a publisher to display the statement', df_copyright['publisher']) 
-        text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
+        text_to_be_copied2 = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
 
     with col2:
         st.write('**Statement is:**')
-        st.caption(text_to_be_copied)
+        st.caption(text_to_be_copied2)
 
-        copy_dict = {"content": text_to_be_copied} 
+        copy_dict = {"content": text_to_be_copied2} 
 
         copy_button = Button(label="Copy to clipboard")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
