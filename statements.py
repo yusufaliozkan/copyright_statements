@@ -98,7 +98,7 @@ with tab1:
         text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
 
     with col2:
-        st.write('**Statement for:**' + text_to_be_copied)
+        st.write('**Statement for:**' + frequently)
         st.caption(text_to_be_copied)
 
         copy_dict = {"content": text_to_be_copied} 
