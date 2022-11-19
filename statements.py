@@ -83,29 +83,32 @@ with tab1:
         override_height=75,
         debounce_time=0)
 
-    st.subheader('Frequently used publisher statements')
-    st.write('Publisher statements. Click on the button to copy the statement.')
+    st.subheader('Frequently used statements')
+    st.write('Publisher statements:')
+    col1, col2 = st.columns(2)
+    with col1:
+        df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
+        frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
+        text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
 
-    df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
-    frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
-    text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
-    st.write('**Publisher statement is:**')
-    st.caption(text_to_be_copied)
+    with col2:
+        st.write('**Publisher statement is:**')
+        st.caption(text_to_be_copied)
 
-    copy_dict = {"content": text_to_be_copied} 
+        copy_dict = {"content": text_to_be_copied} 
 
-    copy_button = Button(label="Copy to clipboard")
-    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-        navigator.clipboard.writeText(content);
-        """))
+        copy_button = Button(label="Copy to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
 
-    no_event = streamlit_bokeh_events(
-        copy_button,
-        events="GET_TEXTwww",
-        key="get_textwww",
-        refresh_on_update=True,
-        override_height=75,
-        debounce_time=0)
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXTwww",
+            key="get_textwww",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
 
     # show = st.checkbox('Display statements')
 
