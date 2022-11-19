@@ -88,32 +88,32 @@ with tab1:
     with col2:
         st.subheader('Frequently used statements')
         st.write('Publisher statements:')
-        col1, col2 = st.columns([1,2])
+        col1, col2 = st.columns([1,3])
         with col1:
             df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
             frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
             text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
 
+        with col2:
+            st.write('**Statement:**')
+            st.caption(text_to_be_copied)
 
-        st.write('**Statement:**')
-        st.caption(text_to_be_copied)
+            copy_dict = {"content": text_to_be_copied} 
 
-        copy_dict = {"content": text_to_be_copied} 
+            copy_button = Button(label="Copy to clipboard")
+            copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                navigator.clipboard.writeText(content);
+                """))
 
-        copy_button = Button(label="Copy to clipboard")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+            no_event = streamlit_bokeh_events(
+                copy_button,
+                events="GET_TEXTfu1",
+                key="get_textfu1",
+                refresh_on_update=True,
+                override_height=75,
+                debounce_time=0)
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXTfu1",
-            key="get_textfu1",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
 
-    with col2:
         st.write('CC BY licence statements:')
         col1, col2 = st.columns(2)
         with col1:
