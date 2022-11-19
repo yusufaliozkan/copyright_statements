@@ -88,7 +88,7 @@ with tab1:
     with col2:
         st.subheader('Frequently used statements')
         st.write('Publisher statements:')
-        col1, col2 = st.columns([1,3])
+        col1, col2 = st.columns([1,2])
         with col1:
             df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
             frequently = st.radio('Select a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
