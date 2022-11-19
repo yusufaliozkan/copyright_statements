@@ -265,6 +265,8 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+        if show2:
+            st.caption(text_to_be_copied)
 
     with col2:
         text_to_be_copied = df.loc[df_new['publisher']=='CC BY-NC licence', 'statement'].values[0]
