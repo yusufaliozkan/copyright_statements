@@ -55,8 +55,8 @@ with st.sidebar:
         def local_css(file_name):
             with open(file_name) as f:
                 st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-        local_css("style.css")
-        components.html(
+    local_css("style.css")
+    components.html(
 """
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This tool is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 """
