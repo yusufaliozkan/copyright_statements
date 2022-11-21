@@ -104,10 +104,6 @@ with tab1:
         frequently = st.radio('Choose a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
         text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
 
-        df_copyright = df.loc[df_new['publisher'].isin(['CC BY licence', 'CC BY-NC licence', 'CC BY-NC-ND licence', 'CC BY-NC-SA licence', 'CC BY-SA licence'])]
-        copyright = st.radio('Choose a CC licence to display the statement', df_copyright['publisher']) 
-        text_to_be_copied = df.loc[df_new['publisher']==copyright, 'statement'].values[0]
-
     with col2:
         st.write('**Statement for:** ' + frequently)
         st.caption(text_to_be_copied)
@@ -127,30 +123,30 @@ with tab1:
             override_height=75,
             debounce_time=0)
 
-    # col1, col2 = st.columns([1,2])
-    # with col1:
-    #     df_copyright = df.loc[df_new['publisher'].isin(['CC BY licence', 'CC BY-NC licence', 'CC BY-NC-ND licence', 'CC BY-NC-SA licence', 'CC BY-SA licence'])]
-    #     copyright = st.radio('Choose a CC licence to display the statement', df_copyright['publisher']) 
-    #     text_to_be_copied = df.loc[df_new['publisher']==copyright, 'statement'].values[0]
+    col1, col2 = st.columns([1,2])
+    with col1:
+        df_copyright = df.loc[df_new['publisher'].isin(['CC BY licence', 'CC BY-NC licence', 'CC BY-NC-ND licence', 'CC BY-NC-SA licence', 'CC BY-SA licence'])]
+        copyright = st.radio('Choose a CC licence to display the statement', df_copyright['publisher']) 
+        text_to_be_copied2 = df.loc[df_new['publisher']==copyright, 'statement'].values[0]
 
-    # with col2:
-    #     st.write('**Statement for:** ' + copyright)
-    #     st.caption(text_to_be_copied)
+    with col2:
+        st.write('**Statement for:** ' + copyright)
+        st.caption(text_to_be_copied2)
 
-    #     copy_dict = {"content": text_to_be_copied} 
+        copy_dict = {"content": text_to_be_copied2} 
 
-    #     copy_button = Button(label="Copy to clipboard")
-    #     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-    #         navigator.clipboard.writeText(content);
-    #         """))
+        copy_button = Button(label="Copy to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
 
-    #     no_event = streamlit_bokeh_events(
-    #         copy_button,
-    #         events="GET_TEXTfu2",
-    #         key="get_textfu2",
-    #         refresh_on_update=True,
-    #         override_height=75,
-    #         debounce_time=0)
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXTfu2",
+            key="get_textfu2",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
 
     # show = st.checkbox('Display statements')
 
