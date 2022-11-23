@@ -382,7 +382,7 @@ with tab1:
             debounce_time=0)
 
         def convert_df(df):
-            return df.to_csv(index=False).encode('cp1252')
+            return df.to_csv(index=False).encode('cp1252') # not utf-8 because of the weird character,  Â
 
         csv = convert_df(df_new)
 
