@@ -12,7 +12,7 @@ df = pd.read_csv(r'statements.csv')
 df['publisher'] = df['publisher'].astype(str)
 df['link'] = df['link'].astype(str)
 df.link = df.link.fillna('none')
-df
+
 df_rrs = df.copy()
 df['statement'] = 'Copyright ' + df['statement'].astype(str)
 df_new=df.sort_values(by='publisher')
