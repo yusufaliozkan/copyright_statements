@@ -13,8 +13,8 @@ df['publisher'] = df['publisher'].astype(str)
 df['link'] = df['link'].astype(str)
 df_rrs = df.copy()
 df['statement'] = 'Copyright ' + df['statement'].astype(str)
-df_new=df.sort_values(by='publisher')
 df['link'] = df['link'].fillna('no link')
+df_new=df.sort_values(by='publisher')
 
 # Setting the app page layout
 st.set_page_config(
