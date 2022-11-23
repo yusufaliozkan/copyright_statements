@@ -80,7 +80,7 @@ with tab1:
         df_link = df.loc[df_new['publisher']==publisher, 'link'].values[0]
     with col2:
         st.write('**Statement for:** ' + publisher)
-        st.write(df_link)
+        st.write('Link: ' + df_link)
         st.info(df_statement)
 
         text_to_be_copied = df_statement
