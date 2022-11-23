@@ -366,7 +366,7 @@ with tab1:
     #         debounce_time=0)
 
     with st.expander('All publisher statements'):        
-        st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets. The dataset updated on ' + st.date_inpu(2022, 11, 23))
+        st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets. The dataset updated on ' + st.date_input(2022, 11, 23))
         st.dataframe(df_new)
         copy_button = Button(label="Copy data all copyright statements")
         copy_button.js_on_event("button_click", CustomJS(args=dict(df_new=df_new.to_csv(sep='\t')), code="""
