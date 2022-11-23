@@ -13,7 +13,6 @@ df['publisher'] = df['publisher'].astype(str)
 df_rrs = df.copy()
 df['statement'] = 'Copyright ' + df['statement'].astype(str)
 df_new=df.sort_values(by='publisher')
-df_new['link'].fillna('no info')
 
 # Setting the app page layout
 st.set_page_config(
@@ -80,7 +79,7 @@ with tab1:
         df_link = df.loc[df_new['publisher']==publisher, 'link'].values[0]
     with col2:
         st.write('**Statement for:** ' + publisher)
-        st.write('*Link to the statement:* '+ df_link)
+        st.write(df_link)
         st.info(df_statement)
 
         text_to_be_copied = df_statement
