@@ -14,7 +14,7 @@ df_rrs = df.copy()
 df['statement'] = 'Copyright ' + df['statement'].astype(str)
 df_new=df.sort_values(by='publisher')
 df_new['link'] = df['link'].astype(str)
-
+df_new['link'].fillna('')
 # Setting the app page layout
 st.set_page_config(
     layout = "wide", 
