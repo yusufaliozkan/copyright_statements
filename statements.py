@@ -11,7 +11,7 @@ import streamlit.components.v1 as components
 df = pd.read_csv(r'statements.csv')
 df['publisher'] = df['publisher'].astype(str)
 df['link'] = df['link'].astype(str)
-df['link'] = df['link'].replace('', 'None')
+df['link'] = df['link'].replace('nan', 'None')
 # df.link = df.link.fillna('none')
 
 df_rrs = df.copy()
