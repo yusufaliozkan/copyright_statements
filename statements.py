@@ -76,6 +76,7 @@ with tab1:
         clist = df_new['publisher'].unique()
         publisher = st.selectbox("Select a publisher:",clist)
         df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
+        df_link = df.loc[df_new['publisher']==publisher, 'link'].values[0]
     with col2:
         st.write('**Statement for:** ' + publisher)
         st.info(df_statement)
@@ -95,7 +96,7 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-
+        st.write('**Link to the statement:** '+ df_link)
 
     st.subheader('Frequently used statements')
     col1, col2 = st.columns([1,2])
