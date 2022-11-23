@@ -44,7 +44,7 @@ with st.sidebar:
 )
 
     with st.expander('Source code'):
-        st.info('CAPSv1.1. Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
+        st.info('CAPSv1.2. Source code of this app is available [here](https://github.com/YusufAliOzkan/copyright_statements).')
     with st.expander('Disclaimer'):
         st.warning('Please note that although every effort has been made to keep this list updated, there might be missing, incomplete, or not updated information. If you believe something is wrong, please feel free to get in touch.', icon="ℹ️")
     with st.expander('Contact us'):
@@ -366,7 +366,7 @@ with tab1:
     #         debounce_time=0)
 
     with st.expander('All publisher statements'):        
-        st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets.')
+        st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets. The dataset updated on 23 November 2022')
         st.dataframe(df_new)
         copy_button = Button(label="Copy data all copyright statements")
         copy_button.js_on_event("button_click", CustomJS(args=dict(df_new=df_new.to_csv(sep='\t')), code="""
