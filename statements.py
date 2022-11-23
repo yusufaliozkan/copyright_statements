@@ -78,7 +78,7 @@ with tab1:
         clist = df_new['publisher'].unique()
         publisher = st.selectbox("Select a publisher:",clist)
         df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
-        df_link = df.loc[df_new['publisher']==publisher, 'link'].values[0]
+        df_link = df.loc[df['publisher']==publisher, 'link'].values[0]
     with col2:
         st.write('**Statement for:** ' + publisher)
         st.write('Link: ' + df_link)
