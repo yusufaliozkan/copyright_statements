@@ -78,7 +78,8 @@ with tab1:
         df_statement = df.loc[df_new['publisher']==publisher, 'statement'].values[0]
         df_link = df.loc[df_new['publisher']==publisher, 'link'].values[0]
     with col2:
-        st.write('**Statement for:** ' + publisher + df_link)
+        st.write('**Statement for:** ' + publisher)
+        st.write('*Link to the statement:* '+ df_link)
         st.info(df_statement)
 
         text_to_be_copied = df_statement
@@ -96,8 +97,7 @@ with tab1:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
-        st.write('**Link to the statement:** '+ df_link)
-
+        
     st.subheader('Frequently used statements')
     col1, col2 = st.columns([1,2])
     with col1:
