@@ -234,8 +234,10 @@ with tab4:
 
         # Decapitalize words except the first word
         for i in range(1, len(words)):
-            if not words[i].isupper() or len(words[i]) == 1:
+            if not words[i].istitle() and not words[i].isupper():
                 words[i] = words[i].lower()
+            elif words[i].istitle() and len(words[i]) > 1:
+                words[i] = words[i][0].lower() + words[i][1:]
 
         # Join the words back into a string
         decapitalized_title = ' '.join(words)
@@ -245,8 +247,6 @@ with tab4:
     title = st.text_input("Enter a title:")
     if title:
         decapitalized_title = decapitalize_titles(title)
-        # Capitalize first letter of the first word
-        decapitalized_title = decapitalized_title[0].upper() + decapitalized_title[1:]
         st.write(f"**Decapitalized Title:** {decapitalized_title}")
 
         copy_dict = {"content": decapitalized_title}
