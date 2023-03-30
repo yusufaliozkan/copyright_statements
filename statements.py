@@ -228,6 +228,7 @@ with tab3:
 
 with tab4:
     st.subheader('Title organiser')
+    title = st.text_input('Write the title here:')
 
 with st.expander("Sherpa Romeo"):
     components.iframe("https://v2.sherpa.ac.uk/romeo/", height=1500)
