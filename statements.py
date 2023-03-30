@@ -228,32 +228,36 @@ with tab3:
 
 with tab4:
     st.subheader('Title organiser')    
-    def decapitalize_titles(title):
-        # Split the title into words
+    def decapitalize_title(title):
         words = title.split()
-
-        # Decapitalize words except the first word
         for i in range(1, len(words)):
-            if not words[i].isupper():
+            if not words[i].isupper() or len(words[i]) == 1:
                 words[i] = words[i].lower()
-            elif len(words[i]) > 1 and words[i][1:].islower():
-                words[i] = words[i][:1].lower() + words[i][1:]
-
-        # Join the words back into a string
-        decapitalized_title = ' '.join(words)
-
-        return decapitalized_title
+            else:
+                words[i] = words[i][0].lower() + words[i][1:]
+        return " ".join(words)
 
     title = st.text_input("Enter a title:")
     if title:
-        decapitalized_title = decapitalize_titles(title)
+        decapitalized_title = decapitalize_title(title)
         st.write(f"**Decapitalized Title:** {decapitalized_title}")
 
+
+
         copy_dict = {"content": decapitalized_title}
-        copy_button = st.button("Copy to clipboard")
-        if copy_button:
-            st.write("Copied to clipboard!")
-            st.experimental_set_query_params(title=decapitalized_title)
+        copy_button = Button(label="Copy to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_title",
+            key="get_title",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
+
 
 
 with st.expander("Sherpa Romeo"):
