@@ -232,12 +232,11 @@ with tab4:
         # Split the title into words
         words = title.split()
 
-        # Decapitalize words except the first word
+        # Decapitalize words except the first word and special words
+        special_words = ["of", "the", "and", "in", "on", "at", "for", "with"]
         for i in range(1, len(words)):
-            if not words[i].isupper():
-                words[i] = words[i].lower()
-            elif len(words[i]) > 1 and words[i][1:].islower():
-                words[i] = words[i].capitalize()
+            if not words[i].isupper() or words[i].lower() in special_words:
+                words[i] = words[i].lower().capitalize()
 
         # Join the words back into a string
         decapitalized_title = ' '.join(words)
