@@ -246,8 +246,6 @@ with tab4:
     if title:
         decapitalized_title = decapitalize_titles(title)
         st.write(f"Decapitalized Title: {decapitalized_title}")
-    decapitalized_title = decapitalize_title(title)
-    st.write(title)
 
 with st.expander("Sherpa Romeo"):
     components.iframe("https://v2.sherpa.ac.uk/romeo/", height=1500)
