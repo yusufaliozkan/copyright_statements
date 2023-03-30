@@ -229,6 +229,16 @@ with tab3:
 with tab4:
     st.subheader('Title organiser')
     title = st.text_input('Write the title here:')
+    def decapitalize_title(title):
+        # Split the title into a list of words
+        words = title.split()
+        # Capitalize the first word
+        words[0] = words[0].title()
+        # Decapitalize the rest of the words
+        words[1:] = [word.lower() for word in words[1:]]
+        # Join the words back together and return the result
+        return ' '.join(words)
+    decapitalized_title = decapitalize_title(title)
     st.write(title)
 
 with st.expander("Sherpa Romeo"):
