@@ -245,7 +245,7 @@ with tab4:
     title = st.text_input("Enter a title:")
     if title:
         decapitalized_title = decapitalize_titles(title)
-        st.write(f"*Decapitalized Title:* {decapitalized_title}")
+        st.write(f"**Decapitalized Title:** {decapitalized_title}")
 
 with st.expander("Sherpa Romeo"):
     components.iframe("https://v2.sherpa.ac.uk/romeo/", height=1500)
