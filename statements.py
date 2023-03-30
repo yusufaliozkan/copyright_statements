@@ -248,7 +248,6 @@ with tab4:
         st.write(f"**Decapitalized Title:** {decapitalized_title}")
 
     copy_dict = {"content": title}
-
     copy_button = Button(label="Copy to clipboard")
     copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
         navigator.clipboard.writeText(content);
