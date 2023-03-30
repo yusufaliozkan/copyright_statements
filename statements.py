@@ -227,8 +227,7 @@ with tab3:
         debounce_time=0)   
 
 with tab4:
-    st.subheader('Title organiser')
-    title = st.text_input('Write the title here:')
+    st.subheader('Title organiser')    
     def decapitalize_title(title):
         # Split the title into a list of words
         words = title.split()
@@ -238,6 +237,7 @@ with tab4:
         words[1:] = [word.lower() for word in words[1:]]
         # Join the words back together and return the result
         return ' '.join(words)
+    title = st.text_input('Write the title here:')
     decapitalized_title = decapitalize_title(title)
     st.write(title)
 
