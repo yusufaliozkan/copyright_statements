@@ -234,7 +234,7 @@ with tab4:
 
         # Decapitalize words except the first word
         for i in range(1, len(words)):
-            if not words[i].istitle():
+            if not words[i].isupper() or (i > 1 and len(words[i-1]) > 1 and words[i-1][0].isupper() and words[i-1][1:].islower()):
                 words[i] = words[i].lower()
 
         # Join the words back into a string
@@ -260,6 +260,7 @@ with tab4:
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+
 
 
 with st.expander("Sherpa Romeo"):
