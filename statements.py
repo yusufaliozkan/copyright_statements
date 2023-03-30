@@ -228,21 +228,26 @@ with tab3:
 
 with tab4:
     st.subheader('Title organiser')    
-    def decapitalize_title(title):
+    def decapitalize_titles(title):
+        # Split the title into words
         words = title.split()
+
+        # Decapitalize words except the first word
         for i in range(1, len(words)):
-            if not words[i].isupper() or len(words[i]) == 1:
+            if not words[i].isupper():
                 words[i] = words[i].lower()
-            else:
-                words[i] = words[i][0].lower() + words[i][1:]
-        return " ".join(words)
+            elif len(words[i]) > 1 and words[i][1:].islower():
+                words[i] = words[i].capitalize()
+
+        # Join the words back into a string
+        decapitalized_title = ' '.join(words)
+
+        return decapitalized_title
 
     title = st.text_input("Enter a title:")
     if title:
-        decapitalized_title = decapitalize_title(title)
+        decapitalized_title = decapitalize_titles(title)
         st.write(f"**Decapitalized Title:** {decapitalized_title}")
-
-
 
         copy_dict = {"content": decapitalized_title}
         copy_button = Button(label="Copy to clipboard")
