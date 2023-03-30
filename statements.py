@@ -228,17 +228,16 @@ with tab3:
 
 with tab4:
     st.subheader('Title organiser')    
-
     def decapitalize_titles(title):
         # Split the title into words
         words = title.split()
 
         # Decapitalize words except the first word
         for i in range(1, len(words)):
-            if not words[i].istitle():
+            if not words[i].isupper():
                 words[i] = words[i].lower()
-            elif words[i].isupper():
-                words[i] = words[i][0].lower() + words[i][1:]
+            elif len(words[i]) > 1 and words[i][1:].islower():
+                words[i] = words[i][:1].lower() + words[i][1:]
 
         # Join the words back into a string
         decapitalized_title = ' '.join(words)
@@ -251,18 +250,10 @@ with tab4:
         st.write(f"**Decapitalized Title:** {decapitalized_title}")
 
         copy_dict = {"content": decapitalized_title}
-        copy_button = st.button("Copy to clipboard", key="copy_button")
+        copy_button = st.button("Copy to clipboard")
         if copy_button:
             st.write("Copied to clipboard!")
-            st.session_state.clipboard = decapitalized_title
-            st.experimental_set_query_params(copy_button=1)
-
-        if "copy_button" in st.experimental_get_query_params():
-            if hasattr(st.session_state, "clipboard"):
-                st.write(st.session_state.clipboard)
-                st.experimental_set_query_params(copy_button=0)
-
-
+            st.experimental_set_query_params(title=decapitalized_title)
 
 
 with st.expander("Sherpa Romeo"):
