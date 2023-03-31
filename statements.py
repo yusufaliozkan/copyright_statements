@@ -231,7 +231,6 @@ with tab4:
     def decapitalize_titles(title):
         # Split the title into words
         words = title.split()
-
         # Decapitalize words except the first word
         for i in range(1, len(words)):
             if not words[i].istitle() and not words[i].isupper():
