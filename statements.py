@@ -231,26 +231,39 @@ with tab4:
     def decapitalize_titles(title):
         # Split the title into words
         words = title.split()
-        
+            
         # Capitalize the first word
         words[0] = words[0].capitalize()
-        
+            
         # Decapitalize words except the first word
         for i in range(1, len(words)):
-            if not words[i].istitle() and not words[i].isupper():
-                words[i] = words[i].lower()
-            elif words[i].istitle() and len(words[i]) > 1:
-                words[i] = words[i][0].lower() + words[i][1:]
-            elif words[i].isupper():
-                words[i] = words[i].lower()
-        
+            if "-" in words[i]:
+                # Split the hyphenated word into parts
+                parts = words[i].split("-")
+                for j in range(len(parts)):
+                    if not parts[j].istitle() and not parts[j].isupper():
+                        parts[j] = parts[j].lower()
+                    elif parts[j].istitle() and len(parts[j]) > 1:
+                        parts[j] = parts[j][0].lower() + parts[j][1:]
+                    elif parts[j].isupper():
+                        parts[j] = parts[j].lower()
+                # Join the parts back together with a hyphen
+                words[i] = "-".join(parts)
+            else:
+                if not words[i].istitle() and not words[i].isupper():
+                    words[i] = words[i].lower()
+                elif words[i].istitle() and len(words[i]) > 1:
+                    words[i] = words[i][0].lower() + words[i][1:]
+                elif words[i].isupper():
+                    words[i] = words[i].lower()
+            
         # Join the words back into a string
         decapitalized_title = ' '.join(words)
-        
+            
         return decapitalized_title
 
     title = st.text_input("Enter a title:")
-    decapitalise = st.button('Decapitalise title')
+    decapitalise = st.button('Decapitalize title')
     if decapitalise:
         if title:
             decapitalized_title = decapitalize_titles(title)
