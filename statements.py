@@ -250,6 +250,7 @@ with tab4:
                         parts[j] = parts[j].lower()
                 # Join the parts back together with a hyphen
                 words[i] = "-".join(parts)
+                words[i] = "–".join(parts)
             else:
                 if not words[i].istitle() and not words[i].isupper():
                     words[i] = words[i].lower()
