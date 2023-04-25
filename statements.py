@@ -240,6 +240,7 @@ with tab4:
             if "-" in words[i]:
                 # Split the hyphenated word into parts
                 parts = words[i].split("-")
+                parts = words[i].split("–")
                 for j in range(len(parts)):
                     if not parts[j].istitle() and not parts[j].isupper():
                         parts[j] = parts[j].lower()
