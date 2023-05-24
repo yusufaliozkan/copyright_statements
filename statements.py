@@ -202,6 +202,7 @@ with tab3:
     year = st.text_input('Publication year:', '')
     authors = st.text_input('First author ( *Surname, Name* ) :', '')
     multiple_authors = st.checkbox('Multiple athors?')
+    etal = ''
     if multiple_authors:
         etal = 'et al'
     title = st.text_input('Enter title:', '')
