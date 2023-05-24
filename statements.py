@@ -200,12 +200,15 @@ with tab3:
     st.subheader('Grey literature citation generator:')
     st.write('You can generate your citation for [grey literature](https://library.leeds.ac.uk/info/1110/resource_guides/7/grey_literature) items by filling the boxes below.')
     year = st.text_input('Publication year:', '')
-    authors = st.text_input('First author ( *Surname, First letter of name* ) :', '')
+    authors = st.text_input('First author ( *Surname, Name* ) :', '')
+    multiple_authors = st.checkbox('Multiple athors?')
+    if multiple_authors:
+        etal = 'et al'
     title = st.text_input('Enter title:', '')
     type = st.selectbox('Select a type of publication: ', ('Report', 'Preprint', 'Working paper', 'Blog post'))
     institution = st.text_input('Institution name:', '')
     handle = st.text_input('Publication handle:', '')
-    citation = ('Please cite this paper: ' + year + ' '+ authors +'. '+"'"+title+"'. "+ '('+type+ ": "+institution+')'+" "+handle)
+    citation = ('Please cite this paper: ' + year + ' '+ authors + etal+'. '+"'"+title+"'. "+ '('+type+ ": "+institution+')'+" "+handle)
     if st.button('Show citation'):
         st.write('**Citation** : ')
         st.info(citation)
