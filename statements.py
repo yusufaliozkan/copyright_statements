@@ -204,7 +204,7 @@ with tab3:
     multiple_authors = st.checkbox('Multiple athors?')
     etal = ''
     if multiple_authors:
-        etal = 'et al.'
+        etal = 'et al. '
     title = st.text_input('Enter title:', '')
     type = st.selectbox('Select a type of publication: ', ('Report', 'Preprint', 'Working paper', 'Blog post'))
     institution = st.text_input('Institution name:', '')
