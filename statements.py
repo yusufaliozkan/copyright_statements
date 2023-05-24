@@ -208,7 +208,7 @@ with tab3:
     type = st.selectbox('Select a type of publication: ', ('Report', 'Preprint', 'Working paper', 'Blog post'))
     institution = st.text_input('Institution name:', '')
     handle = st.text_input('Publication handle:', '')
-    citation = ('Please cite this paper: ' + year + ' '+ authors + etal+'. '+"'"+title+"'. "+ '('+type+ ": "+institution+')'+" "+handle)
+    citation = ('Please cite this paper: ' + year + ' '+ authors + ' ' + etal+'. '+"'"+title+"'. "+ '('+type+ ": "+institution+')'+" "+handle)
     if st.button('Show citation'):
         st.write('**Citation** : ')
         st.info(citation)
