@@ -29,7 +29,7 @@ st.set_page_config(
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
 path2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/220px-Copyright.svg.png'
 # st.image(path2, width=75)    
-st.markdown("# CAPS (Copyright and Publisher Statements) tool...")
+st.markdown("# CAPS (Copyright and Publisher Statements) tool")
 
 with st.sidebar:
     st.image(path2, width=150)
