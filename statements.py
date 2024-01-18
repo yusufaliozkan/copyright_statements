@@ -104,7 +104,7 @@ with tab1:
     st.subheader('Frequently used statements')
     col1, col2 = st.columns([1,2])
     with col1:
-        df_frequent = df.loc[df_new['publisher'].isin(['Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
+        df_frequent = df.loc[df_new['publisher'].isin(['RPOAP', 'Elsevier', 'Wiley', 'Springer Nature', 'IEEE ', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'])]
         frequently = st.radio('Choose a publisher to display the statement', df_frequent['publisher']) #('Elsevier', 'Wiley', 'Springer Nature', 'IEEE', 'SAGE Publications', 'BMJ Publishing', 'Oxford University Press (OUP)', 'American Chemical Society'))
         text_to_be_copied = df.loc[df_new['publisher']==frequently, 'statement'].values[0]
 
