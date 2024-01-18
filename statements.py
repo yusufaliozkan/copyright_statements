@@ -16,7 +16,6 @@ df['link'] = df['link'].replace('nan', 'No link found')
 df_rrs = df.copy()
 df['statement'] = 'Copyright ' + df['statement'].astype(str)
 df_new=df.sort_values(by='publisher')
-df_new
 
 # Setting the app page layout
 st.set_page_config(
