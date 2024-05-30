@@ -72,8 +72,6 @@ tab1, tab2, tab3, tab4 = st.tabs(['Publisher and copyright statements', 'Rights 
 with tab1:
     st.subheader('Publisher and copyright statements')
 
-    with st.popover("Open popover"):
-        st.markdown("Hello World 👋")
     st.write('This page lists set publisher statements that need to accompany self-archiving in institutional repositories. From the dropdown menu, select the publisher and then copy the statement to clipboard.')
     
     col1, col2 = st.columns([1,2])
