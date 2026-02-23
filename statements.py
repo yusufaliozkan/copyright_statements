@@ -201,17 +201,11 @@ with tab4:
         return " ".join(words)
 
     title = st.text_input("Enter a title:", key="title_input")
+    decapitalized_title = decapitalize_titles(title) if title.strip() else ""
 
-    if "decapitalized_title" not in st.session_state:
-        st.session_state.decapitalized_title = ""
-
-    if st.button("Decapitalize title", key="decap_btn"):
-        if title.strip():
-            st.session_state.decapitalized_title = decapitalize_titles(title)
-
-    if st.session_state.decapitalized_title:
-        st.write(f"**Decapitalized Title:** {st.session_state.decapitalized_title}")
-        st_copy_to_clipboard(st.session_state.decapitalized_title, key="copy_title")
+    if decapitalized_title:
+        st.write(f"**Decapitalized Title:** {decapitalized_title}")
+        st_copy_to_clipboard(decapitalized_title, key="copy_title")
 
 
 
