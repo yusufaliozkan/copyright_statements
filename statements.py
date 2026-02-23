@@ -201,12 +201,25 @@ with tab4:
         return " ".join(words)
 
     title = st.text_input("Enter a title:", key="title_input")
-    decapitalized_title = decapitalize_titles(title) if title.strip() else ""
 
-    if decapitalized_title:
-        st.write(f"**Decapitalized Title:** {decapitalized_title}")
-        st_copy_to_clipboard(decapitalized_title, key="copy_title")
+    if "decapitalized_title" not in st.session_state:
+        st.session_state.decapitalized_title = ""
+    if "copy_nonce" not in st.session_state:
+        st.session_state.copy_nonce = 0
 
+    if st.button("Decapitalize title", key="decap_btn"):
+        new_val = decapitalize_titles(title.strip()) if title.strip() else ""
+        st.session_state.decapitalized_title = new_val
+        st.session_state.copy_nonce += 1   # <-- force new component key
+
+    if st.session_state.decapitalized_title:
+        st.write(f"**Decapitalized Title:** {st.session_state.decapitalized_title}")
+
+        # key changes every time you generate a new title => component remounts with new text
+        st_copy_to_clipboard(
+            st.session_state.decapitalized_title,
+            key=f"copy_title_{st.session_state.copy_nonce}"
+        )
 
 
 with st.expander("Sherpa Romeo"):
