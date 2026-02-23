@@ -135,22 +135,12 @@ with tab2:
     st.write("[Rights retention statement](https://www.coalition-s.org/resources/rights-retention-strategy/) allows authors to exercise the rights of their accepted manuscripts. Copy the statement below and paste into your submitted version.")
     st.info('**'+df_rrs.loc[df_rrs['publisher']=='Rights retention statement', 'statement'].values[0]+'**')
     
-    text_to_be_copied = df.loc[df_rrs['publisher']=='Rights retention statement', 'statement'].values[0]
-    copy_dict = {"content": text_to_be_copied}
+    rrs_text = df_rrs.loc[df_rrs['publisher']=='Rights retention statement', 'statement'].values[0]
+    st.info('**' + rrs_text + '**')
 
-    copy_button = Button(label="Copy to clipboard")
-    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-    navigator.clipboard.writeText(content);
-    """))
-
-    no_event = streamlit_bokeh_events(
-    copy_button,
-    events="GET_TEXTrrs",
-    key="get_textrrs",
-    refresh_on_update=True,
-    override_height=75,
-    debounce_time=0)
-    
+    st_copy_to_clipboard(rrs_text, key="copy_rrs")
+        debounce_time=0)
+        
 with tab3:
     st.subheader('Grey literature citation generator:')
     st.write('You can generate your citation for [grey literature](https://library.leeds.ac.uk/info/1110/resource_guides/7/grey_literature) items by filling the boxes below.')
