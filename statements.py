@@ -123,14 +123,6 @@ with tab1:
         tsv_all = df_new.to_csv(sep="\t", index=False)
         st_copy_to_clipboard(tsv_all, key="copy_all_statements_tsv")
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT11",
-            key="get_text11",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-
         def convert_df(df):
             return df.to_csv(index=False).encode('cp1252') # not utf-8 because of the weird character,  Â
 
