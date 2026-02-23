@@ -160,18 +160,16 @@ with tab3:
         st_copy_to_clipboard(citation, key="copy_citation")  
 
 with tab4:
-    st.subheader('Title organiser')    
-    def decapitalize_titles(title):
-        # Split the title into words
+    st.subheader("Title organiser")
+
+    def decapitalize_titles(title: str) -> str:
         words = title.split()
-            
-        # Capitalize the first word
+        if not words:
+            return ""
         words[0] = words[0].capitalize()
-            
-        # Decapitalize words except the first word
+
         for i in range(1, len(words)):
             if "-" in words[i]:
-                # Split the hyphenated word into parts
                 parts = words[i].split("-")
                 for j in range(len(parts)):
                     if not parts[j].istitle() and not parts[j].isupper():
@@ -180,10 +178,9 @@ with tab4:
                         parts[j] = parts[j][0].lower() + parts[j][1:]
                     elif parts[j].isupper():
                         parts[j] = parts[j].lower()
-                # Join the parts back together with a hyphen
                 words[i] = "-".join(parts)
+
             if "–" in words[i]:
-                # Split the hyphenated word into parts
                 parts = words[i].split("–")
                 for j in range(len(parts)):
                     if not parts[j].istitle() and not parts[j].isupper():
@@ -192,7 +189,6 @@ with tab4:
                         parts[j] = parts[j][0].lower() + parts[j][1:]
                     elif parts[j].isupper():
                         parts[j] = parts[j].lower()
-                # Join the parts back together with a hyphen
                 words[i] = "–".join(parts)
             else:
                 if not words[i].istitle() and not words[i].isupper():
@@ -201,19 +197,21 @@ with tab4:
                     words[i] = words[i][0].lower() + words[i][1:]
                 elif words[i].isupper():
                     words[i] = words[i].lower()
-            
-        # Join the words back into a string
-        decapitalized_title = ' '.join(words)
-            
-        return decapitalized_title
 
-    title = st.text_input("Enter a title:")
-    decapitalise = st.button('Decapitalize title')
-    if decapitalise:
-        if title:
-            decapitalized_title = decapitalize_titles(title)
-            st.write(f"**Decapitalized Title:** {decapitalized_title}")
-            st_copy_to_clipboard(decapitalized_title, key="copy_title")
+        return " ".join(words)
+
+    title = st.text_input("Enter a title:", key="title_input")
+
+    if "decapitalized_title" not in st.session_state:
+        st.session_state.decapitalized_title = ""
+
+    if st.button("Decapitalize title", key="decap_btn"):
+        if title.strip():
+            st.session_state.decapitalized_title = decapitalize_titles(title)
+
+    if st.session_state.decapitalized_title:
+        st.write(f"**Decapitalized Title:** {st.session_state.decapitalized_title}")
+        st_copy_to_clipboard(st.session_state.decapitalized_title, key="copy_title")
 
 
 
