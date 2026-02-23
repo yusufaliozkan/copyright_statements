@@ -139,7 +139,6 @@ with tab2:
     st.info('**' + rrs_text + '**')
 
     st_copy_to_clipboard(rrs_text, key="copy_rrs")
-        debounce_time=0)
         
 with tab3:
     st.subheader('Grey literature citation generator:')
