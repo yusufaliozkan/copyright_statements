@@ -5,7 +5,7 @@ from streamlit_bokeh_events import streamlit_bokeh_events
 import pandas as pd
 import pyperclip
 import streamlit.components.v1 as components
-
+from st_copy_to_clipboard import st_copy_to_clipboard
 
 # Exporting dataset
 df = pd.read_csv(r'statements.csv')
@@ -86,21 +86,10 @@ with tab1:
         st.write('Link to statement: ' + df_link)
         st.info(df_statement)
 
-        text_to_be_copied = df_statement
-        copy_dict = {"content": text_to_be_copied}
+        st.info(df_statement)
 
-        copy_button = Button(label="Copy to clipboard")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
-
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT",
-            key="get_text",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
+        # copy button
+        st_copy_to_clipboard(df_statement, key=f"copy_statement_{publisher}")
         
     st.subheader('Frequently used statements')
     col1, col2 = st.columns([1,2])
