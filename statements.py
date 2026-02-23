@@ -103,20 +103,7 @@ with tab1:
         st.write('**Statement for:** ' + frequently)
         st.caption(text_to_be_copied)
 
-        copy_dict = {"content": text_to_be_copied} 
-
-        copy_button = Button(label="Copy to clipboard")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
-
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXTfu1",
-            key="get_textfu1",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
+        st_copy_to_clipboard(text_to_be_copied, key=f"copy_frequent_pub_{frequently}")
 
     col1, col2 = st.columns([1,2])
     with col1:
@@ -128,28 +115,13 @@ with tab1:
         st.write('**Statement for:** ' + copyright)
         st.caption(text_to_be_copied2)
 
-        copy_dict = {"content": text_to_be_copied2} 
-
-        copy_button = Button(label="Copy to clipboard")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
-
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXTfu2",
-            key="get_textfu2",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
+        st_copy_to_clipboard(text_to_be_copied2, key=f"copy_cc_{copyright}")
 
     with st.expander('All publisher statements'):        
         st.write('This page lists all the copyright statements as a dataset. You can copy or download all the datasets. The dataset updated on 28 November 2022')
         st.dataframe(df_new)
-        copy_button = Button(label="Copy data all copyright statements")
-        copy_button.js_on_event("button_click", CustomJS(args=dict(df_new=df_new.to_csv(sep='\t')), code="""
-            navigator.clipboard.writeText(df_new);
-            """))
+        tsv_all = df_new.to_csv(sep="\t", index=False)
+        st_copy_to_clipboard(tsv_all, key="copy_all_statements_tsv")
 
         no_event = streamlit_bokeh_events(
             copy_button,
