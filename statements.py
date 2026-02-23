@@ -86,8 +86,6 @@ with tab1:
         st.write('Link to statement: ' + df_link)
         st.info(df_statement)
 
-        st.info(df_statement)
-
         # copy button
         st_copy_to_clipboard(df_statement, key=f"copy_statement_{publisher}")
         
